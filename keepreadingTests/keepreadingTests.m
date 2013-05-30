@@ -8,9 +8,16 @@
 
 #import "keepreadingTests.h"
 
+#import "FYDLibrary.h"
+#import "FYDBook.h"
+#import "FYDBookSearch.h"
+
 @interface keepreadingTests ()
+{
+    dispatch_semaphore_t sema;
+}
 
-
+@property (strong, nonatomic) FYDLibrary *library;
 
 @end
 
@@ -20,19 +27,33 @@
 {
     [super setUp];
     
-    // Set-up code here.
+    self.library = [[FYDLibrary alloc] init];
+    sema = dispatch_semaphore_create(0);
 }
 
 - (void)tearDown
 {
-    // Tear-down code here.
+    self.library = nil;
     
     [super tearDown];
 }
 
+- (void)testBookSearch
+{
+    STAssertNoThrow([FYDBookSearch search:@"Fear and loathing" completionHandler:^(NSArray *results, NSError *error)
+                     {
+                         STAssertNil(error, @"search has error");
+                         dispatch_semaphore_signal(sema);
+                     }], @"FYDBookSearch search did throw");
+    
+    [[NSRunLoop mainRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
+    
+    STAssertTrue(dispatch_semaphore_wait(sema, DISPATCH_TIME_NOW) == 0, @"callback has not been called");
+}
+
 - (void)testModel
 {
-    
+    [self.library addBook:[[FYDBook alloc] init]];
 }
 
 @end

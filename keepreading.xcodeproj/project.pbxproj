@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		173C7C111757F419004E791B /* FYDBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 173C7C101757F419004E791B /* FYDBookCell.m */; };
 		174BE18C1757BE930096037A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174BE18B1757BE930096037A /* UIKit.framework */; };
 		174BE18E1757BE930096037A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174BE18D1757BE930096037A /* Foundation.framework */; };
 		174BE1901757BE930096037A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174BE18F1757BE930096037A /* CoreGraphics.framework */; };
@@ -25,6 +26,9 @@
 		174BE1B81757BE940096037A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174BE18D1757BE930096037A /* Foundation.framework */; };
 		174BE1C01757BE940096037A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 174BE1BE1757BE940096037A /* InfoPlist.strings */; };
 		174BE1C31757BE940096037A /* keepreadingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 174BE1C21757BE940096037A /* keepreadingTests.m */; };
+		174BE1D01757C60B0096037A /* FYDLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 174BE1CF1757C60B0096037A /* FYDLibrary.m */; };
+		174BE1D41757C7100096037A /* FYDBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 174BE1D31757C7100096037A /* FYDBook.m */; };
+		17EF7A5B1757DA1A00832D01 /* FYDBookSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 17EF7A5A1757DA1A00832D01 /* FYDBookSearch.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		173C7C0F1757F419004E791B /* FYDBookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYDBookCell.h; sourceTree = "<group>"; };
+		173C7C101757F419004E791B /* FYDBookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDBookCell.m; sourceTree = "<group>"; };
 		174BE1881757BE930096037A /* keepreading.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = keepreading.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		174BE18B1757BE930096037A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		174BE18D1757BE930096037A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -63,6 +69,12 @@
 		174BE1BF1757BE940096037A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		174BE1C11757BE940096037A /* keepreadingTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = keepreadingTests.h; sourceTree = "<group>"; };
 		174BE1C21757BE940096037A /* keepreadingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = keepreadingTests.m; sourceTree = "<group>"; };
+		174BE1CE1757C60B0096037A /* FYDLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYDLibrary.h; sourceTree = "<group>"; };
+		174BE1CF1757C60B0096037A /* FYDLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDLibrary.m; sourceTree = "<group>"; };
+		174BE1D21757C7100096037A /* FYDBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYDBook.h; sourceTree = "<group>"; };
+		174BE1D31757C7100096037A /* FYDBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDBook.m; sourceTree = "<group>"; };
+		17EF7A591757DA1A00832D01 /* FYDBookSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYDBookSearch.h; sourceTree = "<group>"; };
+		17EF7A5A1757DA1A00832D01 /* FYDBookSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDBookSearch.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +101,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		173C7C0E1757F400004E791B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				173C7C0F1757F419004E791B /* FYDBookCell.h */,
+				173C7C101757F419004E791B /* FYDBookCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		174BE17F1757BE930096037A = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +149,8 @@
 				174BE1A61757BE930096037A /* MainStoryboard_iPad.storyboard */,
 				174BE1CC1757C08D0096037A /* Controller */,
 				174BE1CD1757C09F0096037A /* Model */,
+				173C7C0E1757F400004E791B /* View */,
+				17EF7A581757D9F800832D01 /* Utility */,
 				174BE1921757BE930096037A /* Supporting Files */,
 			);
 			path = keepreading;
@@ -180,8 +203,21 @@
 		174BE1CD1757C09F0096037A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				174BE1CE1757C60B0096037A /* FYDLibrary.h */,
+				174BE1CF1757C60B0096037A /* FYDLibrary.m */,
+				174BE1D21757C7100096037A /* FYDBook.h */,
+				174BE1D31757C7100096037A /* FYDBook.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		17EF7A581757D9F800832D01 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				17EF7A591757DA1A00832D01 /* FYDBookSearch.h */,
+				17EF7A5A1757DA1A00832D01 /* FYDBookSearch.m */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +336,10 @@
 				174BE19C1757BE930096037A /* FYDAppDelegate.m in Sources */,
 				174BE1AB1757BE930096037A /* FYDMasterViewController.m in Sources */,
 				174BE1AE1757BE940096037A /* FYDDetailViewController.m in Sources */,
+				174BE1D01757C60B0096037A /* FYDLibrary.m in Sources */,
+				174BE1D41757C7100096037A /* FYDBook.m in Sources */,
+				17EF7A5B1757DA1A00832D01 /* FYDBookSearch.m in Sources */,
+				173C7C111757F419004E791B /* FYDBookCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +458,10 @@
 		174BE1C71757BE940096037A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "keepreading/keepreading-Prefix.pch";
 				INFOPLIST_FILE = "keepreading/keepreading-Info.plist";
@@ -430,6 +474,10 @@
 		174BE1C81757BE940096037A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "keepreading/keepreading-Prefix.pch";
 				INFOPLIST_FILE = "keepreading/keepreading-Info.plist";
@@ -446,6 +494,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "keepreading/keepreading-Prefix.pch";
@@ -463,6 +512,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "keepreading/keepreading-Prefix.pch";
@@ -492,6 +542,7 @@
 				174BE1C81757BE940096037A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		174BE1C91757BE940096037A /* Build configuration list for PBXNativeTarget "keepreadingTests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +551,7 @@
 				174BE1CB1757BE940096037A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
