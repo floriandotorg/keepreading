@@ -1,0 +1,489 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		174BE18C1757BE930096037A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174BE18B1757BE930096037A /* UIKit.framework */; };
+		174BE18E1757BE930096037A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174BE18D1757BE930096037A /* Foundation.framework */; };
+		174BE1901757BE930096037A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174BE18F1757BE930096037A /* CoreGraphics.framework */; };
+		174BE1961757BE930096037A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 174BE1941757BE930096037A /* InfoPlist.strings */; };
+		174BE1981757BE930096037A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 174BE1971757BE930096037A /* main.m */; };
+		174BE19C1757BE930096037A /* FYDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 174BE19B1757BE930096037A /* FYDAppDelegate.m */; };
+		174BE19E1757BE930096037A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 174BE19D1757BE930096037A /* Default.png */; };
+		174BE1A01757BE930096037A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 174BE19F1757BE930096037A /* Default@2x.png */; };
+		174BE1A21757BE930096037A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 174BE1A11757BE930096037A /* Default-568h@2x.png */; };
+		174BE1A51757BE930096037A /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 174BE1A31757BE930096037A /* MainStoryboard_iPhone.storyboard */; };
+		174BE1A81757BE930096037A /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 174BE1A61757BE930096037A /* MainStoryboard_iPad.storyboard */; };
+		174BE1AB1757BE930096037A /* FYDMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 174BE1AA1757BE930096037A /* FYDMasterViewController.m */; };
+		174BE1AE1757BE940096037A /* FYDDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 174BE1AD1757BE940096037A /* FYDDetailViewController.m */; };
+		174BE1B61757BE940096037A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174BE1B51757BE940096037A /* SenTestingKit.framework */; };
+		174BE1B71757BE940096037A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174BE18B1757BE930096037A /* UIKit.framework */; };
+		174BE1B81757BE940096037A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174BE18D1757BE930096037A /* Foundation.framework */; };
+		174BE1C01757BE940096037A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 174BE1BE1757BE940096037A /* InfoPlist.strings */; };
+		174BE1C31757BE940096037A /* keepreadingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 174BE1C21757BE940096037A /* keepreadingTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		174BE1B91757BE940096037A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 174BE1801757BE930096037A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 174BE1871757BE930096037A;
+			remoteInfo = keepreading;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		174BE1881757BE930096037A /* keepreading.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = keepreading.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		174BE18B1757BE930096037A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		174BE18D1757BE930096037A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		174BE18F1757BE930096037A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		174BE1931757BE930096037A /* keepreading-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "keepreading-Info.plist"; sourceTree = "<group>"; };
+		174BE1951757BE930096037A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		174BE1971757BE930096037A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		174BE1991757BE930096037A /* keepreading-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "keepreading-Prefix.pch"; sourceTree = "<group>"; };
+		174BE19A1757BE930096037A /* FYDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYDAppDelegate.h; sourceTree = "<group>"; };
+		174BE19B1757BE930096037A /* FYDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYDAppDelegate.m; sourceTree = "<group>"; };
+		174BE19D1757BE930096037A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		174BE19F1757BE930096037A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		174BE1A11757BE930096037A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		174BE1A41757BE930096037A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		174BE1A71757BE930096037A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		174BE1A91757BE930096037A /* FYDMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYDMasterViewController.h; sourceTree = "<group>"; };
+		174BE1AA1757BE930096037A /* FYDMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYDMasterViewController.m; sourceTree = "<group>"; };
+		174BE1AC1757BE930096037A /* FYDDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYDDetailViewController.h; sourceTree = "<group>"; };
+		174BE1AD1757BE940096037A /* FYDDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYDDetailViewController.m; sourceTree = "<group>"; };
+		174BE1B41757BE940096037A /* keepreadingTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = keepreadingTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		174BE1B51757BE940096037A /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		174BE1BD1757BE940096037A /* keepreadingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "keepreadingTests-Info.plist"; sourceTree = "<group>"; };
+		174BE1BF1757BE940096037A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		174BE1C11757BE940096037A /* keepreadingTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = keepreadingTests.h; sourceTree = "<group>"; };
+		174BE1C21757BE940096037A /* keepreadingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = keepreadingTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		174BE1851757BE930096037A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				174BE18C1757BE930096037A /* UIKit.framework in Frameworks */,
+				174BE18E1757BE930096037A /* Foundation.framework in Frameworks */,
+				174BE1901757BE930096037A /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		174BE1B01757BE940096037A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				174BE1B61757BE940096037A /* SenTestingKit.framework in Frameworks */,
+				174BE1B71757BE940096037A /* UIKit.framework in Frameworks */,
+				174BE1B81757BE940096037A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		174BE17F1757BE930096037A = {
+			isa = PBXGroup;
+			children = (
+				174BE1911757BE930096037A /* keepreading */,
+				174BE1BB1757BE940096037A /* keepreadingTests */,
+				174BE18A1757BE930096037A /* Frameworks */,
+				174BE1891757BE930096037A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		174BE1891757BE930096037A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				174BE1881757BE930096037A /* keepreading.app */,
+				174BE1B41757BE940096037A /* keepreadingTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		174BE18A1757BE930096037A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				174BE18B1757BE930096037A /* UIKit.framework */,
+				174BE18D1757BE930096037A /* Foundation.framework */,
+				174BE18F1757BE930096037A /* CoreGraphics.framework */,
+				174BE1B51757BE940096037A /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		174BE1911757BE930096037A /* keepreading */ = {
+			isa = PBXGroup;
+			children = (
+				174BE19A1757BE930096037A /* FYDAppDelegate.h */,
+				174BE19B1757BE930096037A /* FYDAppDelegate.m */,
+				174BE1A31757BE930096037A /* MainStoryboard_iPhone.storyboard */,
+				174BE1A61757BE930096037A /* MainStoryboard_iPad.storyboard */,
+				174BE1A91757BE930096037A /* FYDMasterViewController.h */,
+				174BE1AA1757BE930096037A /* FYDMasterViewController.m */,
+				174BE1AC1757BE930096037A /* FYDDetailViewController.h */,
+				174BE1AD1757BE940096037A /* FYDDetailViewController.m */,
+				174BE1921757BE930096037A /* Supporting Files */,
+			);
+			path = keepreading;
+			sourceTree = "<group>";
+		};
+		174BE1921757BE930096037A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				174BE1931757BE930096037A /* keepreading-Info.plist */,
+				174BE1941757BE930096037A /* InfoPlist.strings */,
+				174BE1971757BE930096037A /* main.m */,
+				174BE1991757BE930096037A /* keepreading-Prefix.pch */,
+				174BE19D1757BE930096037A /* Default.png */,
+				174BE19F1757BE930096037A /* Default@2x.png */,
+				174BE1A11757BE930096037A /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		174BE1BB1757BE940096037A /* keepreadingTests */ = {
+			isa = PBXGroup;
+			children = (
+				174BE1C11757BE940096037A /* keepreadingTests.h */,
+				174BE1C21757BE940096037A /* keepreadingTests.m */,
+				174BE1BC1757BE940096037A /* Supporting Files */,
+			);
+			path = keepreadingTests;
+			sourceTree = "<group>";
+		};
+		174BE1BC1757BE940096037A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				174BE1BD1757BE940096037A /* keepreadingTests-Info.plist */,
+				174BE1BE1757BE940096037A /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		174BE1871757BE930096037A /* keepreading */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 174BE1C61757BE940096037A /* Build configuration list for PBXNativeTarget "keepreading" */;
+			buildPhases = (
+				174BE1841757BE930096037A /* Sources */,
+				174BE1851757BE930096037A /* Frameworks */,
+				174BE1861757BE930096037A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = keepreading;
+			productName = keepreading;
+			productReference = 174BE1881757BE930096037A /* keepreading.app */;
+			productType = "com.apple.product-type.application";
+		};
+		174BE1B31757BE940096037A /* keepreadingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 174BE1C91757BE940096037A /* Build configuration list for PBXNativeTarget "keepreadingTests" */;
+			buildPhases = (
+				174BE1AF1757BE940096037A /* Sources */,
+				174BE1B01757BE940096037A /* Frameworks */,
+				174BE1B11757BE940096037A /* Resources */,
+				174BE1B21757BE940096037A /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				174BE1BA1757BE940096037A /* PBXTargetDependency */,
+			);
+			name = keepreadingTests;
+			productName = keepreadingTests;
+			productReference = 174BE1B41757BE940096037A /* keepreadingTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		174BE1801757BE930096037A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = FYD;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Floyd UG (haftungsbeschränkt)";
+			};
+			buildConfigurationList = 174BE1831757BE930096037A /* Build configuration list for PBXProject "keepreading" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 174BE17F1757BE930096037A;
+			productRefGroup = 174BE1891757BE930096037A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				174BE1871757BE930096037A /* keepreading */,
+				174BE1B31757BE940096037A /* keepreadingTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		174BE1861757BE930096037A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				174BE1961757BE930096037A /* InfoPlist.strings in Resources */,
+				174BE19E1757BE930096037A /* Default.png in Resources */,
+				174BE1A01757BE930096037A /* Default@2x.png in Resources */,
+				174BE1A21757BE930096037A /* Default-568h@2x.png in Resources */,
+				174BE1A51757BE930096037A /* MainStoryboard_iPhone.storyboard in Resources */,
+				174BE1A81757BE930096037A /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		174BE1B11757BE940096037A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				174BE1C01757BE940096037A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		174BE1B21757BE940096037A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		174BE1841757BE930096037A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				174BE1981757BE930096037A /* main.m in Sources */,
+				174BE19C1757BE930096037A /* FYDAppDelegate.m in Sources */,
+				174BE1AB1757BE930096037A /* FYDMasterViewController.m in Sources */,
+				174BE1AE1757BE940096037A /* FYDDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		174BE1AF1757BE940096037A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				174BE1C31757BE940096037A /* keepreadingTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		174BE1BA1757BE940096037A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 174BE1871757BE930096037A /* keepreading */;
+			targetProxy = 174BE1B91757BE940096037A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		174BE1941757BE930096037A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				174BE1951757BE930096037A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		174BE1A31757BE930096037A /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				174BE1A41757BE930096037A /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		174BE1A61757BE930096037A /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				174BE1A71757BE930096037A /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		174BE1BE1757BE940096037A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				174BE1BF1757BE940096037A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		174BE1C41757BE940096037A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		174BE1C51757BE940096037A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		174BE1C71757BE940096037A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "keepreading/keepreading-Prefix.pch";
+				INFOPLIST_FILE = "keepreading/keepreading-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		174BE1C81757BE940096037A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "keepreading/keepreading-Prefix.pch";
+				INFOPLIST_FILE = "keepreading/keepreading-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		174BE1CA1757BE940096037A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/keepreading.app/keepreading";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "keepreading/keepreading-Prefix.pch";
+				INFOPLIST_FILE = "keepreadingTests/keepreadingTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		174BE1CB1757BE940096037A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/keepreading.app/keepreading";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "keepreading/keepreading-Prefix.pch";
+				INFOPLIST_FILE = "keepreadingTests/keepreadingTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		174BE1831757BE930096037A /* Build configuration list for PBXProject "keepreading" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				174BE1C41757BE940096037A /* Debug */,
+				174BE1C51757BE940096037A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		174BE1C61757BE940096037A /* Build configuration list for PBXNativeTarget "keepreading" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				174BE1C71757BE940096037A /* Debug */,
+				174BE1C81757BE940096037A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		174BE1C91757BE940096037A /* Build configuration list for PBXNativeTarget "keepreadingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				174BE1CA1757BE940096037A /* Debug */,
+				174BE1CB1757BE940096037A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 174BE1801757BE930096037A /* Project object */;
+}
