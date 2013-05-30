@@ -8,6 +8,12 @@
 
 #import "keepreadingTests.h"
 
+@interface keepreadingTests ()
+
+
+
+@end
+
 @implementation keepreadingTests
 
 - (void)setUp
@@ -24,9 +30,9 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testModel
 {
-    STFail(@"Unit tests are not implemented yet in keepreadingTests");
+    
 }
 
 @end
