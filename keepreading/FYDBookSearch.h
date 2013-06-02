@@ -8,8 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+@class FYDBookSearch;
+
+@protocol FYDBookSearchDelegate <NSObject>
+
+- (BOOL)bookSearch:(FYDBookSearch*)bookSearch shouldParse:(NSUInteger)searchId;
+
+@end
+
 @interface FYDBookSearch : NSObject
 
-+ (void)search:(NSString*)searchString completionHandler:(void (^)(NSArray*,NSError*))handler;
+- (id)initWithDelegate:(id<FYDBookSearchDelegate>)delegate;
+
+- (NSUInteger)search:(NSString*)searchString completionHandler:(void (^)(NSArray*,NSUInteger,NSError*))handler;
 
 @end

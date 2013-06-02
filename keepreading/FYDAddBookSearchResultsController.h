@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FYDAddBookSearchResultsController : NSObject<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
+#import "FYDBookSearch.h"
+
+@interface FYDAddBookSearchResultsController : NSObject<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,FYDBookSearchDelegate>
 
 @end

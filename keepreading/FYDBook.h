@@ -16,6 +16,6 @@
 @property (strong, nonatomic) NSDate *publishedDate;
 @property (strong, nonatomic) NSString *publisher;
 @property (assign, nonatomic) NSUInteger pages;
-@property (strong, nonatomic) UIImage *thumbnail;
+@property (strong, nonatomic) NSURL *thumbnailURL;
 
 @end

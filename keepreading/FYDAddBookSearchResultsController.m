@@ -10,17 +10,27 @@
 
 #import "FYDBook.h"
 #import "FYDBookCell.h"
-#import "FYDBookSearch.h"
 
 @interface FYDAddBookSearchResultsController ()
 
 @property (strong, nonatomic) NSArray *books;
+@property (strong, nonatomic) FYDBookSearch *bookSearch;
+@property (assign, nonatomic) NSUInteger currentSearchId;
 
 @property (weak, nonatomic) IBOutlet UISearchDisplayController *searchDisplayController;
 
 @end
 
 @implementation FYDAddBookSearchResultsController
+
+- (id)init
+{
+    if (self = [super init])
+    {
+        self.bookSearch = [[FYDBookSearch alloc] initWithDelegate:self];
+    }
+    return self;
+}
 
 - (void)awakeFromNib
 {
@@ -37,7 +47,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (self.books.count > 0)
+    if (self.books != nil)
     {
         return self.books.count;
     }
@@ -47,16 +57,27 @@
     }
 }
 
+- (BOOL)bookSearch:(FYDBookSearch *)bookSearch shouldParse:(NSUInteger)searchId
+{
+    return searchId == self.currentSearchId;
+}
+
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
+    self.books = nil;
 
-    [FYDBookSearch search:searchBar.text completionHandler:^(NSArray *results, NSError *error)
+    self.currentSearchId = [self.bookSearch search:searchBar.text completionHandler:^(NSArray *results, NSUInteger searchId, NSError *error)
      {
-         if (!error)
+         if (!error && searchId == self.currentSearchId)
          {
              self.books = results;
              [self.searchDisplayController.searchResultsTableView reloadData];
+         }
+         else
+         {
+             NSLog(@"searchId: %i, error: %@", searchId, error);
          }
          [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
      }];
@@ -64,7 +85,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.books.count > 0)
+    if (self.books != nil)
     {
         FYDBookCell *cell = nil;
         
@@ -82,7 +103,7 @@
         cell.titleLabel.text = book.title;
         cell.subtitleLabel.text = book.subtitle;
         cell.additionalLabel.text = [NSString stringWithFormat:@"%@\n%i, %@, %i pages", book.author, [[[NSCalendar currentCalendar] components:NSYearCalendarUnit fromDate:book.publishedDate] year], book.publisher, book.pages];
-        cell.thumbnailImageView.image = book.thumbnail;
+        cell.thumbnailImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:book.thumbnailURL]];
         
         return cell;
     }
