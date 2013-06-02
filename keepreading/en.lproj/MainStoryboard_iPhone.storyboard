@@ -65,6 +65,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y8s-wy-DJj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <searchDisplayController id="wCT-29-Epv">
                     <connections>
+                        <outlet property="delegate" destination="dPZ-a6-dR4" id="VDH-kI-Wl1"/>
                         <outlet property="searchBar" destination="2lA-fV-xVA" id="bvZ-Nr-Zxo"/>
                         <outlet property="searchContentsController" destination="J3x-sr-zcw" id="4MN-ns-wcX"/>
                         <outlet property="searchResultsDataSource" destination="dPZ-a6-dR4" id="d65-u2-0Dv"/>
@@ -80,20 +81,6 @@
             <point key="canvasLocation" x="446" y="64"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="FYDAddBookSearchResultsController" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FYDAddBookSearchResultsController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="searchDisplayController" candidateClass="UISearchDisplayController"/>
-            </relationships>
-        </class>
-        <class className="FYDAddBookTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FYDAddBookTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="addBookSearchResultsController" candidateClass="FYDAddBookSearchResultsController"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

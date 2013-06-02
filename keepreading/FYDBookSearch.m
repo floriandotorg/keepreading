@@ -37,8 +37,6 @@
 {
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[[@"https://www.googleapis.com/books/v1/volumes?key=AIzaSyAgsavqorzZFulM2iwEIjLKJo09qoD9i8k&q=" stringByAppendingString:searchString] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
     
-    NSLog(@"url: %@", request.URL.absoluteString);
-    
     NSUInteger searchId = ++self.idCounter;
     
     [NSURLConnection sendAsynchronousRequest:request

@@ -32,12 +32,12 @@
     return self;
 }
 
-- (void)awakeFromNib
+- (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView
 {
-    [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"BookCell" bundle:[NSBundle mainBundle]]forCellReuseIdentifier:@"BookCell"];
-    [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"LoadingCell" bundle:[NSBundle mainBundle]]forCellReuseIdentifier:@"LoadingCell"];
+    [tableView registerNib:[UINib nibWithNibName:@"BookCell" bundle:[NSBundle mainBundle]]forCellReuseIdentifier:@"BookCell"];
+    [tableView registerNib:[UINib nibWithNibName:@"LoadingCell" bundle:[NSBundle mainBundle]]forCellReuseIdentifier:@"LoadingCell"];
     
-    self.searchDisplayController.searchResultsTableView.rowHeight = 121;
+    tableView.rowHeight = 121;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
