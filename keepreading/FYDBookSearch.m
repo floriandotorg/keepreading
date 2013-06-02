@@ -25,6 +25,9 @@
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
         {
+            NSDateFormatter *dateFormater = [[NSDateFormatter alloc] init];
+            dateFormater.dateFormat = @"yyyy-MM-dd";
+            
             if (!error && data != nil)
             {
                 NSError *err = nil;
@@ -51,6 +54,10 @@
                                     
                                     book.title = volumeInfo[@"title"];
                                     book.subtitle = volumeInfo[@"subtitle"];
+                                    book.author = [((NSArray*)volumeInfo[@"authors"]) componentsJoinedByString:@", "];
+                                    book.publishedDate = [dateFormater dateFromString:volumeInfo[@"publishedDate"]];
+                                    book.publisher = volumeInfo[@"publisher"];
+                                    book.pages = ((NSNumber*)volumeInfo[@"pageCount"]).unsignedIntegerValue;
                                     
                                     NSString *thumbnailURL = volumeInfo[@"imageLinks"][@"thumbnail"];
                                     

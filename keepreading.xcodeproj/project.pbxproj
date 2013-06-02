@@ -19,8 +19,6 @@
 		174BE1A21757BE930096037A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 174BE1A11757BE930096037A /* Default-568h@2x.png */; };
 		174BE1A51757BE930096037A /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 174BE1A31757BE930096037A /* MainStoryboard_iPhone.storyboard */; };
 		174BE1A81757BE930096037A /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 174BE1A61757BE930096037A /* MainStoryboard_iPad.storyboard */; };
-		174BE1AB1757BE930096037A /* FYDMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 174BE1AA1757BE930096037A /* FYDMasterViewController.m */; };
-		174BE1AE1757BE940096037A /* FYDDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 174BE1AD1757BE940096037A /* FYDDetailViewController.m */; };
 		174BE1B61757BE940096037A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174BE1B51757BE940096037A /* SenTestingKit.framework */; };
 		174BE1B71757BE940096037A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174BE18B1757BE930096037A /* UIKit.framework */; };
 		174BE1B81757BE940096037A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174BE18D1757BE930096037A /* Foundation.framework */; };
@@ -28,6 +26,10 @@
 		174BE1C31757BE940096037A /* keepreadingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 174BE1C21757BE940096037A /* keepreadingTests.m */; };
 		174BE1D01757C60B0096037A /* FYDLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 174BE1CF1757C60B0096037A /* FYDLibrary.m */; };
 		174BE1D41757C7100096037A /* FYDBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 174BE1D31757C7100096037A /* FYDBook.m */; };
+		176138E0175A8EE2003BD612 /* FYDAddBookTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 176138DF175A8EE2003BD612 /* FYDAddBookTableViewController.m */; };
+		176138E3175A916E003BD612 /* FYDAddBookSearchResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 176138E2175A916E003BD612 /* FYDAddBookSearchResultsController.m */; };
+		176138E5175AA60D003BD612 /* BookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 176138E4175AA60D003BD612 /* BookCell.xib */; };
+		176138E7175B4FD0003BD612 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 176138E6175B4FD0003BD612 /* LoadingCell.xib */; };
 		17EF7A5B1757DA1A00832D01 /* FYDBookSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 17EF7A5A1757DA1A00832D01 /* FYDBookSearch.m */; };
 /* End PBXBuildFile section */
 
@@ -59,10 +61,6 @@
 		174BE1A11757BE930096037A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		174BE1A41757BE930096037A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		174BE1A71757BE930096037A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		174BE1A91757BE930096037A /* FYDMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYDMasterViewController.h; sourceTree = "<group>"; };
-		174BE1AA1757BE930096037A /* FYDMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYDMasterViewController.m; sourceTree = "<group>"; };
-		174BE1AC1757BE930096037A /* FYDDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYDDetailViewController.h; sourceTree = "<group>"; };
-		174BE1AD1757BE940096037A /* FYDDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYDDetailViewController.m; sourceTree = "<group>"; };
 		174BE1B41757BE940096037A /* keepreadingTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = keepreadingTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		174BE1B51757BE940096037A /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		174BE1BD1757BE940096037A /* keepreadingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "keepreadingTests-Info.plist"; sourceTree = "<group>"; };
@@ -73,6 +71,12 @@
 		174BE1CF1757C60B0096037A /* FYDLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDLibrary.m; sourceTree = "<group>"; };
 		174BE1D21757C7100096037A /* FYDBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYDBook.h; sourceTree = "<group>"; };
 		174BE1D31757C7100096037A /* FYDBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDBook.m; sourceTree = "<group>"; };
+		176138DE175A8EE2003BD612 /* FYDAddBookTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYDAddBookTableViewController.h; sourceTree = "<group>"; };
+		176138DF175A8EE2003BD612 /* FYDAddBookTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDAddBookTableViewController.m; sourceTree = "<group>"; };
+		176138E1175A916E003BD612 /* FYDAddBookSearchResultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYDAddBookSearchResultsController.h; sourceTree = "<group>"; };
+		176138E2175A916E003BD612 /* FYDAddBookSearchResultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDAddBookSearchResultsController.m; sourceTree = "<group>"; };
+		176138E4175AA60D003BD612 /* BookCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BookCell.xib; path = ../BookCell.xib; sourceTree = "<group>"; };
+		176138E6175B4FD0003BD612 /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoadingCell.xib; path = ../LoadingCell.xib; sourceTree = "<group>"; };
 		17EF7A591757DA1A00832D01 /* FYDBookSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYDBookSearch.h; sourceTree = "<group>"; };
 		17EF7A5A1757DA1A00832D01 /* FYDBookSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDBookSearch.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,6 +151,8 @@
 				174BE19B1757BE930096037A /* FYDAppDelegate.m */,
 				174BE1A31757BE930096037A /* MainStoryboard_iPhone.storyboard */,
 				174BE1A61757BE930096037A /* MainStoryboard_iPad.storyboard */,
+				176138E4175AA60D003BD612 /* BookCell.xib */,
+				176138E6175B4FD0003BD612 /* LoadingCell.xib */,
 				174BE1CC1757C08D0096037A /* Controller */,
 				174BE1CD1757C09F0096037A /* Model */,
 				173C7C0E1757F400004E791B /* View */,
@@ -192,10 +198,10 @@
 		174BE1CC1757C08D0096037A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				174BE1A91757BE930096037A /* FYDMasterViewController.h */,
-				174BE1AA1757BE930096037A /* FYDMasterViewController.m */,
-				174BE1AC1757BE930096037A /* FYDDetailViewController.h */,
-				174BE1AD1757BE940096037A /* FYDDetailViewController.m */,
+				176138DE175A8EE2003BD612 /* FYDAddBookTableViewController.h */,
+				176138DF175A8EE2003BD612 /* FYDAddBookTableViewController.m */,
+				176138E1175A916E003BD612 /* FYDAddBookSearchResultsController.h */,
+				176138E2175A916E003BD612 /* FYDAddBookSearchResultsController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -298,6 +304,8 @@
 				174BE1A21757BE930096037A /* Default-568h@2x.png in Resources */,
 				174BE1A51757BE930096037A /* MainStoryboard_iPhone.storyboard in Resources */,
 				174BE1A81757BE930096037A /* MainStoryboard_iPad.storyboard in Resources */,
+				176138E5175AA60D003BD612 /* BookCell.xib in Resources */,
+				176138E7175B4FD0003BD612 /* LoadingCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,12 +342,12 @@
 			files = (
 				174BE1981757BE930096037A /* main.m in Sources */,
 				174BE19C1757BE930096037A /* FYDAppDelegate.m in Sources */,
-				174BE1AB1757BE930096037A /* FYDMasterViewController.m in Sources */,
-				174BE1AE1757BE940096037A /* FYDDetailViewController.m in Sources */,
 				174BE1D01757C60B0096037A /* FYDLibrary.m in Sources */,
 				174BE1D41757C7100096037A /* FYDBook.m in Sources */,
 				17EF7A5B1757DA1A00832D01 /* FYDBookSearch.m in Sources */,
 				173C7C111757F419004E791B /* FYDBookCell.m in Sources */,
+				176138E0175A8EE2003BD612 /* FYDAddBookTableViewController.m in Sources */,
+				176138E3175A916E003BD612 /* FYDAddBookSearchResultsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
