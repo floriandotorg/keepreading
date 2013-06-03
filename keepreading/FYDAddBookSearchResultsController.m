@@ -124,13 +124,10 @@
         cell.additionalLabel.text = [NSString stringWithFormat:@"%@\n%i, %@, %i pages", book.author, [[[NSCalendar currentCalendar] components:NSYearCalendarUnit fromDate:book.publishedDate] year], book.publisher, book.lastPage];
         cell.thumbnailImageView.image = nil;
         
-        [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:book.thumbnailURL]
-                                           queue:[NSOperationQueue mainQueue]
-                               completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
-         {
-             cell.thumbnailImageView.image = [UIImage imageWithData:data];
-         }];
-        
+        [book loadThumbnail:^(UIImage *image, NSError *error)
+            {
+                cell.thumbnailImageView.image = image;
+            }];
         
         return cell;
     }

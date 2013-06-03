@@ -43,7 +43,8 @@
 		17613917175C03C5003BD612 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 17613916175C03C5003BD612 /* libiconv.dylib */; };
 		177CCE14175CEA6D003A96C0 /* KeyboardNavigationToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 177CCE13175CEA6D003A96C0 /* KeyboardNavigationToolbar.xib */; };
 		177CCE17175CEBB1003A96C0 /* FYDKeyboardNavigationToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 177CCE16175CEBB1003A96C0 /* FYDKeyboardNavigationToolbar.m */; };
-		177CCE1A175D01EA003A96C0 /* AddWordHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 177CCE19175D01EA003A96C0 /* AddWordHeader.xib */; };
+		177CCE1A175D01EA003A96C0 /* AddWordHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 177CCE19175D01EA003A96C0 /* AddWordHeaderView.xib */; };
+		177CCE1D175D0608003A96C0 /* FYDAddBookHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 177CCE1C175D0608003A96C0 /* FYDAddBookHeaderView.m */; };
 		17B13C3E175CD7AA00E935DA /* FYDAddBookMetadataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B13C3D175CD7AA00E935DA /* FYDAddBookMetadataViewController.m */; };
 		17EF7A5B1757DA1A00832D01 /* FYDBookSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 17EF7A5A1757DA1A00832D01 /* FYDBookSearch.m */; };
 /* End PBXBuildFile section */
@@ -126,7 +127,9 @@
 		177CCE13175CEA6D003A96C0 /* KeyboardNavigationToolbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KeyboardNavigationToolbar.xib; sourceTree = "<group>"; };
 		177CCE15175CEBB1003A96C0 /* FYDKeyboardNavigationToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYDKeyboardNavigationToolbar.h; sourceTree = "<group>"; };
 		177CCE16175CEBB1003A96C0 /* FYDKeyboardNavigationToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDKeyboardNavigationToolbar.m; sourceTree = "<group>"; };
-		177CCE19175D01EA003A96C0 /* AddWordHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddWordHeader.xib; sourceTree = "<group>"; };
+		177CCE19175D01EA003A96C0 /* AddWordHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddWordHeaderView.xib; sourceTree = "<group>"; };
+		177CCE1B175D0608003A96C0 /* FYDAddBookHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYDAddBookHeaderView.h; sourceTree = "<group>"; };
+		177CCE1C175D0608003A96C0 /* FYDAddBookHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDAddBookHeaderView.m; sourceTree = "<group>"; };
 		17B13C3C175CD7AA00E935DA /* FYDAddBookMetadataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYDAddBookMetadataViewController.h; sourceTree = "<group>"; };
 		17B13C3D175CD7AA00E935DA /* FYDAddBookMetadataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDAddBookMetadataViewController.m; sourceTree = "<group>"; };
 		17EF7A591757DA1A00832D01 /* FYDBookSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYDBookSearch.h; sourceTree = "<group>"; };
@@ -170,6 +173,8 @@
 				173C7C101757F419004E791B /* FYDBookCell.m */,
 				177CCE15175CEBB1003A96C0 /* FYDKeyboardNavigationToolbar.h */,
 				177CCE16175CEBB1003A96C0 /* FYDKeyboardNavigationToolbar.m */,
+				177CCE1B175D0608003A96C0 /* FYDAddBookHeaderView.h */,
+				177CCE1C175D0608003A96C0 /* FYDAddBookHeaderView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -364,7 +369,7 @@
 				176138E4175AA60D003BD612 /* BookCell.xib */,
 				176138E6175B4FD0003BD612 /* LoadingCell.xib */,
 				177CCE13175CEA6D003A96C0 /* KeyboardNavigationToolbar.xib */,
-				177CCE19175D01EA003A96C0 /* AddWordHeader.xib */,
+				177CCE19175D01EA003A96C0 /* AddWordHeaderView.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -464,7 +469,7 @@
 				1761390C175C0378003BD612 /* zbar-helpicons.png in Resources */,
 				1761390D175C0378003BD612 /* zbar-samples.png in Resources */,
 				177CCE14175CEA6D003A96C0 /* KeyboardNavigationToolbar.xib in Resources */,
-				177CCE1A175D01EA003A96C0 /* AddWordHeader.xib in Resources */,
+				177CCE1A175D01EA003A96C0 /* AddWordHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +514,7 @@
 				176138E3175A916E003BD612 /* FYDAddBookSearchResultsController.m in Sources */,
 				17B13C3E175CD7AA00E935DA /* FYDAddBookMetadataViewController.m in Sources */,
 				177CCE17175CEBB1003A96C0 /* FYDKeyboardNavigationToolbar.m in Sources */,
+				177CCE1D175D0608003A96C0 /* FYDAddBookHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

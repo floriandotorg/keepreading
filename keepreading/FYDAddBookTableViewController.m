@@ -11,6 +11,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 #import "FYDBook.h"
+#import "FYDAddBookHeaderView.h"
 #import "FYDAddBookMetadataViewController.h"
 
 @class FYDAddBookSearchResultsController;
@@ -18,23 +19,43 @@
 @interface FYDAddBookTableViewController ()
 
 @property (strong, nonatomic) IBOutlet FYDAddBookSearchResultsController *addBookSearchResultsController;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) UITextField *searchTextField;
 
+@property (weak, nonatomic) FYDAddBookHeaderView *addBookHeaderView;
+
 @property (weak, nonatomic) IBOutlet UITextField *authorTextField;
 @property (weak, nonatomic) IBOutlet UITextField *firstPageTextField;
 @property (weak, nonatomic) IBOutlet UITextField *lastPageTextField;
 
-@property (strong, nonatomic) FYDBook *book;
-
 @property (strong, nonatomic) FYDKeyboardNavigationToolbar *keyboardToolbar;
 @property (weak, nonatomic) UITextField *activeTextField;
+
+@property (strong, nonatomic) FYDBook *book;
 
 @end
 
 @implementation FYDAddBookTableViewController
+
+- (void)createHeader
+{
+    self.addBookHeaderView = [FYDAddBookHeaderView viewWithOwer:self];
+    
+    UIView *searchBarView = self.tableView.tableHeaderView;
+    
+    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.searchBar.frame.size.width, self.searchBar.frame.size.height + self.addBookHeaderView.frame.size.height)];
+    
+    [self.tableView.tableHeaderView addSubview:searchBarView];
+    [self.tableView.tableHeaderView addSubview:self.addBookHeaderView];
+    
+    self.addBookHeaderView.frame = CGRectOffset(self.addBookHeaderView.frame, 0, self.searchBar.frame.size.height);
+    
+    self.addBookHeaderView.backgroundColor = [UIColor clearColor];
+    self.addBookHeaderView.titleTextField.delegate = self;
+}
 
 - (void)viewDidLoad
 {
@@ -44,6 +65,8 @@
     
     self.keyboardToolbar = [FYDKeyboardNavigationToolbar toolbarWithOwer:self];
     self.keyboardToolbar.navigationDelegate = self;
+    
+    [self createHeader];
     
     if ([self hasAutoFocus])
     {
@@ -134,7 +157,12 @@
 
 - (void)keyboardNavigationToolbarNextClick:(FYDKeyboardNavigationToolbar *)navigationToolbar
 {
-    if (self.activeTextField == self.authorTextField)
+    if (self.activeTextField == self.addBookHeaderView.titleTextField)
+    {
+        [self.authorTextField becomeFirstResponder];
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }
+    else if (self.activeTextField == self.authorTextField)
     {
         [self.firstPageTextField becomeFirstResponder];
         [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] atScrollPosition:UITableViewScrollPositionTop animated:YES];
@@ -146,8 +174,8 @@
     }
     else
     {
-        [self.authorTextField becomeFirstResponder];
-        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        [self.addBookHeaderView.titleTextField becomeFirstResponder];
+        [self.tableView scrollRectToVisible:self.addBookHeaderView.titleTextField.frame animated:YES];
     }
 }
 
@@ -162,6 +190,11 @@
     {
         [self.authorTextField becomeFirstResponder];
         [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }
+    else if (self.activeTextField == self.authorTextField)
+    {
+        [self.addBookHeaderView.titleTextField becomeFirstResponder];
+        [self.tableView scrollRectToVisible:self.addBookHeaderView.titleTextField.frame animated:YES];
     }
     else
     {
@@ -196,6 +229,13 @@
 {
     self.book = book;
     
+    self.addBookHeaderView.titleTextField.text = book.title;
+    
+    [book loadThumbnail:^(UIImage *image, NSError *error)
+        {
+            [self.addBookHeaderView.imageButton setBackgroundImage:image forState:UIControlStateNormal];
+        }];
+        
     self.authorTextField.text = book.author;
     self.firstPageTextField.text = [NSString stringWithFormat:@"%i", book.firstPage];
     self.lastPageTextField.text = [NSString stringWithFormat:@"%i", book.lastPage];

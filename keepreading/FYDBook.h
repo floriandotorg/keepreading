@@ -20,4 +20,6 @@
 @property (strong, nonatomic) NSURL *thumbnailURL;
 @property (strong, nonatomic) NSString *isbn;
 
+- (void)loadThumbnail:(void(^)(UIImage*,NSError*))completionHandler;
+
 @end
