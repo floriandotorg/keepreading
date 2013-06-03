@@ -116,6 +116,11 @@
     self.activeTextField = nil;
 }
 
+- (IBAction)handleTap:(UITapGestureRecognizer *)sender
+{
+    [self.activeTextField resignFirstResponder];
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];

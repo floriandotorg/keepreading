@@ -95,6 +95,11 @@
     return YES;
 }
 
+- (IBAction)handleTap:(UITapGestureRecognizer *)sender
+{
+    [self.activeTextField resignFirstResponder];
+}
+
 - (void)keyboardNavigationToolbarDoneClick:(FYDKeyboardNavigationToolbar *)navigationToolbar
 {
     [self.activeTextField resignFirstResponder];
