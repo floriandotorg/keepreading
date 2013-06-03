@@ -77,8 +77,16 @@
                                         book.author = [((NSArray*)volumeInfo[@"authors"]) componentsJoinedByString:@", "];
                                         book.publishedDate = [dateFormater dateFromString:volumeInfo[@"publishedDate"]];
                                         book.publisher = volumeInfo[@"publisher"];
-                                        book.pages = ((NSNumber*)volumeInfo[@"pageCount"]).unsignedIntegerValue;
+                                        book.firstPage = 1;
+                                        book.lastPage = ((NSNumber*)volumeInfo[@"pageCount"]).unsignedIntegerValue;
                                         book.thumbnailURL = [NSURL URLWithString:volumeInfo[@"imageLinks"][@"thumbnail"]];
+                                        
+                                        NSArray *industryIdentifiers = volumeInfo[@"industryIdentifiers"];
+                                        
+                                        if ([industryIdentifiers isKindOfClass:[NSArray class]])
+                                        {
+                                            book.isbn = [industryIdentifiers lastObject][@"identifier"];
+                                        }
                                         
                                         [result addObject:book];
                                     }

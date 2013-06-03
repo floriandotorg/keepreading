@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FYDAddBookTableViewController : UITableViewController
+#import "FYDAddBookSearchResultsController.h"
+#import "FYDKeyboardNavigationToolbar.h"
+
+#import "ZBarSDK.h"
+
+@interface FYDAddBookTableViewController : UITableViewController<ZBarReaderDelegate, FYDAddBookSearchResultsControllerDelegate, FYDKeyboardNavigationToolbarDelegate, UITextFieldDelegate, UITableViewDelegate>
 
 @end

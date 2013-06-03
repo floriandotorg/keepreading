@@ -32,13 +32,58 @@
     return self;
 }
 
+#pragma mark - Book Search Delegate
+
+- (BOOL)bookSearch:(FYDBookSearch *)bookSearch shouldParse:(NSUInteger)searchId
+{
+    return searchId == self.currentSearchId;
+}
+
+#pragma mark - Search Display Controller Delegate
+
+- (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller
+{
+    [self.delegate addBookSearchResultsControllerWillBeginSearch:self];
+}
+
+- (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller
+{
+    [self.delegate addBookSearchResultsControllerWillEndSearch:self];
+}
+
 - (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView
 {
-    [tableView registerNib:[UINib nibWithNibName:@"BookCell" bundle:[NSBundle mainBundle]]forCellReuseIdentifier:@"BookCell"];
-    [tableView registerNib:[UINib nibWithNibName:@"LoadingCell" bundle:[NSBundle mainBundle]]forCellReuseIdentifier:@"LoadingCell"];
+    [tableView registerNib:[UINib nibWithNibName:@"BookCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"BookCell"];
+    [tableView registerNib:[UINib nibWithNibName:@"LoadingCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"LoadingCell"];
     
     tableView.rowHeight = 121;
 }
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
+    self.books = nil;
+
+    self.currentSearchId = [self.bookSearch search:searchString completionHandler:^(NSArray *results, NSUInteger searchId, NSError *error)
+     {
+         if (!error)
+         {
+             self.books = results;
+             [controller.searchResultsTableView reloadData];
+         }
+         else
+         {
+             NSLog(@"searchId: %i, error: %@", searchId, error);
+         }
+         
+         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+     }];
+    
+    return YES;
+}
+
+#pragma mark - Table View Data Source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -55,32 +100,6 @@
     {
         return 1;
     }
-}
-
-- (BOOL)bookSearch:(FYDBookSearch *)bookSearch shouldParse:(NSUInteger)searchId
-{
-    return searchId == self.currentSearchId;
-}
-
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-{
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    
-    self.books = nil;
-
-    self.currentSearchId = [self.bookSearch search:searchBar.text completionHandler:^(NSArray *results, NSUInteger searchId, NSError *error)
-     {
-         if (!error && searchId == self.currentSearchId)
-         {
-             self.books = results;
-             [self.searchDisplayController.searchResultsTableView reloadData];
-         }
-         else
-         {
-             NSLog(@"searchId: %i, error: %@", searchId, error);
-         }
-         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-     }];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -102,7 +121,7 @@
         
         cell.titleLabel.text = book.title;
         cell.subtitleLabel.text = book.subtitle;
-        cell.additionalLabel.text = [NSString stringWithFormat:@"%@\n%i, %@, %i pages", book.author, [[[NSCalendar currentCalendar] components:NSYearCalendarUnit fromDate:book.publishedDate] year], book.publisher, book.pages];
+        cell.additionalLabel.text = [NSString stringWithFormat:@"%@\n%i, %@, %i pages", book.author, [[[NSCalendar currentCalendar] components:NSYearCalendarUnit fromDate:book.publishedDate] year], book.publisher, book.lastPage];
         cell.thumbnailImageView.image = nil;
         
         [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:book.thumbnailURL]
@@ -129,6 +148,17 @@
         }
         
         return cell;
+    }
+}
+
+#pragma mark - Table View Delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.books != nil)
+    {
+        [self.delegate addBookSearchResultsController:self didFinish:self.books[indexPath.row]];
+        [self.searchDisplayController setActive:NO animated:YES];
     }
 }
 

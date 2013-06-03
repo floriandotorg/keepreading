@@ -15,7 +15,9 @@
 @property (strong, nonatomic) NSString *author;
 @property (strong, nonatomic) NSDate *publishedDate;
 @property (strong, nonatomic) NSString *publisher;
-@property (assign, nonatomic) NSUInteger pages;
+@property (assign, nonatomic) NSUInteger firstPage;
+@property (assign, nonatomic) NSUInteger lastPage;
 @property (strong, nonatomic) NSURL *thumbnailURL;
+@property (strong, nonatomic) NSString *isbn;
 
 @end
