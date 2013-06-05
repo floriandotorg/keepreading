@@ -43,7 +43,7 @@
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
         {
-            if ([self.delegate bookSearch:self shouldParse:searchId])
+            if (![self.delegate respondsToSelector:@selector(bookSearch:shouldParse:)] || [self.delegate bookSearch:self shouldParse:searchId])
             {
                 if (!error && data != nil)
                 {
@@ -51,6 +51,9 @@
                     
                     NSDateFormatter *dateFormater = [[NSDateFormatter alloc] init];
                     dateFormater.dateFormat = @"yyyy-MM-dd";
+                    
+                    NSDateFormatter *alternativeDateFormater = [[NSDateFormatter alloc] init];
+                    alternativeDateFormater.dateFormat = @"yyyy-MM";
                     
                     NSDictionary *replyDictionary = [NSJSONSerialization JSONObjectWithData:data
                                                                      options:0
@@ -75,11 +78,17 @@
                                         book.title = volumeInfo[@"title"];
                                         book.subtitle = volumeInfo[@"subtitle"];
                                         book.author = [((NSArray*)volumeInfo[@"authors"]) componentsJoinedByString:@", "];
-                                        book.publishedDate = [dateFormater dateFromString:volumeInfo[@"publishedDate"]];
                                         book.publisher = volumeInfo[@"publisher"];
                                         book.firstPage = 1;
                                         book.lastPage = ((NSNumber*)volumeInfo[@"pageCount"]).unsignedIntegerValue;
                                         book.thumbnailURL = [NSURL URLWithString:volumeInfo[@"imageLinks"][@"thumbnail"]];
+                                        
+                                        book.publishedDate = [dateFormater dateFromString:volumeInfo[@"publishedDate"]];
+                                        
+                                        if (book.publishedDate == nil)
+                                        {
+                                            book.publishedDate = [alternativeDateFormater dateFromString:volumeInfo[@"publishedDate"]];
+                                        }
                                         
                                         NSArray *industryIdentifiers = volumeInfo[@"industryIdentifiers"];
                                         

@@ -9,9 +9,9 @@
 #import "FYDAddBookTableViewController.h"
 
 #import <AVFoundation/AVFoundation.h>
+#import <MobileCoreServices/UTCoreTypes.h>
 
 #import "FYDBook.h"
-#import "FYDAddBookHeaderView.h"
 #import "FYDAddBookMetadataViewController.h"
 
 @class FYDAddBookSearchResultsController;
@@ -34,6 +34,9 @@
 @property (strong, nonatomic) FYDKeyboardNavigationToolbar *keyboardToolbar;
 @property (weak, nonatomic) UITextField *activeTextField;
 
+@property (assign, nonatomic) NSInteger photoLibraryButtonIndex;
+@property (assign, nonatomic) NSInteger cameraButtonIndex;
+
 @property (strong, nonatomic) FYDBook *book;
 
 @end
@@ -43,6 +46,7 @@
 - (void)createHeader
 {
     self.addBookHeaderView = [FYDAddBookHeaderView viewWithOwer:self];
+    self.addBookHeaderView.addWordDelegate = self;
     
     UIView *searchBarView = self.tableView.tableHeaderView;
     
@@ -55,6 +59,77 @@
     
     self.addBookHeaderView.backgroundColor = [UIColor clearColor];
     self.addBookHeaderView.titleTextField.delegate = self;
+    
+    self.addBookHeaderView.imageButton.titleLabel.textAlignment = UITextAlignmentCenter;
+}
+
+- (void)addBookHeaderViewImageButtonClick:(FYDAddBookHeaderView *)view
+{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+    {
+        self.photoLibraryButtonIndex = [actionSheet addButtonWithTitle:@"Choose From Library"];
+    }
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        self.cameraButtonIndex = [actionSheet addButtonWithTitle:@"Take Photo"];
+    }
+    
+    if (actionSheet.numberOfButtons > 0)
+    {
+        actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:@"Cancel"];
+        
+        [actionSheet showInView:self.view];
+    }
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    
+    if (buttonIndex == self.photoLibraryButtonIndex)
+    {
+        imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    else if (buttonIndex == self.cameraButtonIndex)
+    {
+        imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+    }
+    else
+    {
+        return;
+    }
+    
+    imagePickerController.mediaTypes = [[NSArray alloc] initWithObjects:(NSString*)kUTTypeImage, nil];
+
+    imagePickerController.allowsEditing = YES;
+    
+    imagePickerController.delegate = self;
+    
+    [self presentModalViewController:imagePickerController animated:YES];
+}
+
+- (void)imagePickerController:(UIImagePickerController*)reader didFinishPickingMediaWithInfo:(NSDictionary*)info
+{
+    if (info[UIImagePickerControllerEditedImage] != nil)
+    {
+        [self.addBookHeaderView.imageButton setBackgroundImage:info[UIImagePickerControllerEditedImage] forState:UIControlStateNormal];
+    }
+    else if (info[ZBarReaderControllerResults]  != nil)
+    {
+        NSMutableArray *symbols = [[NSMutableArray alloc] init];
+        
+        for (ZBarSymbol *symbol in info[ZBarReaderControllerResults] )
+        {
+            [symbols addObject:symbol];
+        }
+        
+        [self readBarcode:symbols];
+    }
+    
+    [reader dismissModalViewControllerAnimated:YES];
 }
 
 - (void)viewDidLoad
@@ -225,20 +300,26 @@
     self.searchTextField.rightViewMode = UITextFieldViewModeAlways;
 }
 
-- (void)addBookSearchResultsController:(FYDAddBookSearchResultsController *)searchController didFinish:(FYDBook *)book
+- (void)setBook:(FYDBook *)book
 {
-    self.book = book;
+    _book = book;
     
     self.addBookHeaderView.titleTextField.text = book.title;
     
     [book loadThumbnail:^(UIImage *image, NSError *error)
-        {
-            [self.addBookHeaderView.imageButton setBackgroundImage:image forState:UIControlStateNormal];
-        }];
-        
+     {
+         [self.addBookHeaderView.imageButton setBackgroundImage:image forState:UIControlStateNormal];
+         self.addBookHeaderView.imageButton.titleLabel.text = @"";
+     }];
+    
     self.authorTextField.text = book.author;
     self.firstPageTextField.text = [NSString stringWithFormat:@"%i", book.firstPage];
     self.lastPageTextField.text = [NSString stringWithFormat:@"%i", book.lastPage];
+}
+
+- (void)addBookSearchResultsController:(FYDAddBookSearchResultsController *)searchController didFinish:(FYDBook *)book
+{
+    self.book = book;
 }
 
 #pragma mark - Barcode
@@ -250,32 +331,66 @@
     reader.readerDelegate = self;
     reader.supportedOrientationsMask = ZBarOrientationMask(UIInterfaceOrientationPortrait);
     
-    reader.showsZBarControls = NO;
+    reader.showsZBarControls = YES;
     reader.showsHelpOnFail = NO;
     
     [reader.scanner setSymbology:0
                           config:ZBAR_CFG_ENABLE
                               to:0];
     
+    [reader.scanner setSymbology:ZBAR_ISBN10
+                          config:ZBAR_CFG_ENABLE
+                              to:1];
+    
     [reader.scanner setSymbology:ZBAR_ISBN13
+                          config:ZBAR_CFG_ENABLE
+                              to:1];
+    
+    [reader.scanner setSymbology:ZBAR_EAN13
                           config:ZBAR_CFG_ENABLE
                               to:1];
     
     [self presentModalViewController:reader animated:YES];
 }
 
-- (void)imagePickerController:(UIImagePickerController*)reader didFinishPickingMediaWithInfo:(NSDictionary*)info
+- (void)search:(FYDBookSearch*)bookSearch byISBN:(NSEnumerator*)enumerator withCompletionHandler:(void(^)(FYDBook*))handler
 {
-    ZBarSymbol *symbol = nil;
+    ZBarSymbol *symbol = enumerator.nextObject;
     
-    for (symbol in info[ZBarReaderControllerResults])
+    if (symbol == nil)
     {
-        break;
+        handler(nil);
     }
-    
-    NSLog(@"%@", symbol.data);
-    
-    [reader dismissModalViewControllerAnimated:YES];
+    else
+    {
+        [bookSearch search:[NSString stringWithFormat:@"isbn:%@", symbol.data] completionHandler:^(NSArray *results, NSUInteger searchId, NSError *error)
+         {
+             if (results.count > 0)
+             {
+                 handler(results[0]);
+             }
+             else
+             {
+                 [self search:bookSearch byISBN:enumerator withCompletionHandler:handler];
+             }
+         }];
+    }
+}
+
+- (void)readBarcode:(NSArray*)symbols
+{    
+    [self search:[[FYDBookSearch alloc] initWithDelegate:self] byISBN:symbols.objectEnumerator withCompletionHandler:^(FYDBook *book)
+        {
+            if (book != nil)
+            {
+                self.book = book;
+            }
+            else
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed" message:@"Could not find book." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
+                [alert show];
+            }
+        }];
 }
 
 @end

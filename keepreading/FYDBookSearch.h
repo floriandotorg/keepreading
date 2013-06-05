@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+@class FYDBook;
 @class FYDBookSearch;
 
 @protocol FYDBookSearchDelegate <NSObject>
 
+@optional
 - (BOOL)bookSearch:(FYDBookSearch*)bookSearch shouldParse:(NSUInteger)searchId;
 
 @end

@@ -46,6 +46,7 @@
 		177CCE1A175D01EA003A96C0 /* AddWordHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 177CCE19175D01EA003A96C0 /* AddWordHeaderView.xib */; };
 		177CCE1D175D0608003A96C0 /* FYDAddBookHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 177CCE1C175D0608003A96C0 /* FYDAddBookHeaderView.m */; };
 		17B13C3E175CD7AA00E935DA /* FYDAddBookMetadataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B13C3D175CD7AA00E935DA /* FYDAddBookMetadataViewController.m */; };
+		17B2C1F1175F9B1B0042F0C1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B2C1F0175F9B1B0042F0C1 /* MobileCoreServices.framework */; };
 		17EF7A5B1757DA1A00832D01 /* FYDBookSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 17EF7A5A1757DA1A00832D01 /* FYDBookSearch.m */; };
 /* End PBXBuildFile section */
 
@@ -132,6 +133,7 @@
 		177CCE1C175D0608003A96C0 /* FYDAddBookHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDAddBookHeaderView.m; sourceTree = "<group>"; };
 		17B13C3C175CD7AA00E935DA /* FYDAddBookMetadataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYDAddBookMetadataViewController.h; sourceTree = "<group>"; };
 		17B13C3D175CD7AA00E935DA /* FYDAddBookMetadataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDAddBookMetadataViewController.m; sourceTree = "<group>"; };
+		17B2C1F0175F9B1B0042F0C1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		17EF7A591757DA1A00832D01 /* FYDBookSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYDBookSearch.h; sourceTree = "<group>"; };
 		17EF7A5A1757DA1A00832D01 /* FYDBookSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDBookSearch.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,6 +143,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17B2C1F1175F9B1B0042F0C1 /* MobileCoreServices.framework in Frameworks */,
 				17613917175C03C5003BD612 /* libiconv.dylib in Frameworks */,
 				17613915175C03B4003BD612 /* QuartzCore.framework in Frameworks */,
 				17613913175C03AD003BD612 /* CoreVideo.framework in Frameworks */,
@@ -201,6 +204,7 @@
 		174BE18A1757BE930096037A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				17B2C1F0175F9B1B0042F0C1 /* MobileCoreServices.framework */,
 				17613916175C03C5003BD612 /* libiconv.dylib */,
 				176138EB175C0378003BD612 /* ZBarSDK */,
 				17613914175C03B4003BD612 /* QuartzCore.framework */,

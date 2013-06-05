@@ -22,4 +22,9 @@ static UINib *nib = nil;
     return [[nib instantiateWithOwner:self options:nil] objectAtIndex:0];
 }
 
+- (IBAction)imageButtonClick:(UIButton *)sender
+{
+    [self.addWordDelegate addBookHeaderViewImageButtonClick:self];
+}
+
 @end

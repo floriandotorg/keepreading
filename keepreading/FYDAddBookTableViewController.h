@@ -10,9 +10,11 @@
 
 #import "FYDAddBookSearchResultsController.h"
 #import "FYDKeyboardNavigationToolbar.h"
+#import "FYDAddBookHeaderView.h"
+#import "FYDBookSearch.h"
 
 #import "ZBarSDK.h"
 
-@interface FYDAddBookTableViewController : UITableViewController<ZBarReaderDelegate, FYDAddBookSearchResultsControllerDelegate, FYDKeyboardNavigationToolbarDelegate, UITextFieldDelegate, UITableViewDelegate>
+@interface FYDAddBookTableViewController : UITableViewController<ZBarReaderDelegate, FYDAddBookSearchResultsControllerDelegate, FYDKeyboardNavigationToolbarDelegate, UITextFieldDelegate, UITableViewDelegate, FYDAddBookHeaderViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, FYDBookSearchDelegate>
 
 @end
