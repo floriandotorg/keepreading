@@ -146,7 +146,7 @@
     {
         if (CGRectContainsPoint(label.frame, touchPoint))
         {
-            self.contentOffset = CGPointMake(CGRectGetMinX(label.frame), 0);
+            [self setContentOffset:CGPointMake(CGRectGetMinX(label.frame), 0) animated:YES];
             break;
         }
     }
