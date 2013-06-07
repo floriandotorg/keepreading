@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17015442175FC468006BED53 /* FYDDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 17015441175FC468006BED53 /* FYDDatePicker.m */; };
 		173C7C111757F419004E791B /* FYDBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 173C7C101757F419004E791B /* FYDBookCell.m */; };
 		174BE18C1757BE930096037A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174BE18B1757BE930096037A /* UIKit.framework */; };
 		174BE18E1757BE930096037A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174BE18D1757BE930096037A /* Foundation.framework */; };
@@ -47,6 +48,18 @@
 		177CCE1D175D0608003A96C0 /* FYDAddBookHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 177CCE1C175D0608003A96C0 /* FYDAddBookHeaderView.m */; };
 		17B13C3E175CD7AA00E935DA /* FYDAddBookMetadataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B13C3D175CD7AA00E935DA /* FYDAddBookMetadataViewController.m */; };
 		17B2C1F1175F9B1B0042F0C1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B2C1F0175F9B1B0042F0C1 /* MobileCoreServices.framework */; };
+		17E3DB7E17624E1E00AD4A74 /* Kal.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17E3DB7D17624E1E00AD4A74 /* Kal.bundle */; };
+		17E3DBA21762517300AD4A74 /* FYDMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E3DBA11762517300AD4A74 /* FYDMainViewController.m */; };
+		17E3DBA3176252F100AD4A74 /* KalDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E3DB8C17624E3400AD4A74 /* KalDataSource.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		17E3DBA4176252F100AD4A74 /* KalDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E3DB8D17624E3400AD4A74 /* KalDate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		17E3DBA5176252F100AD4A74 /* KalGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E3DB8E17624E3400AD4A74 /* KalGridView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		17E3DBA6176252F100AD4A74 /* KalLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E3DB8F17624E3400AD4A74 /* KalLogic.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		17E3DBA7176252F100AD4A74 /* KalMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E3DB9017624E3400AD4A74 /* KalMonthView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		17E3DBA8176252F100AD4A74 /* KalTileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E3DB9117624E3400AD4A74 /* KalTileView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		17E3DBA9176252F100AD4A74 /* KalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E3DB9217624E3400AD4A74 /* KalView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		17E3DBAA176252F100AD4A74 /* KalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E3DB9317624E3400AD4A74 /* KalViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		17E3DBAB176252F100AD4A74 /* NSDateAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E3DB9417624E3400AD4A74 /* NSDateAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		17E3DBAC176252F100AD4A74 /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E3DB9517624E3400AD4A74 /* UIViewAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		17EF7A5B1757DA1A00832D01 /* FYDBookSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 17EF7A5A1757DA1A00832D01 /* FYDBookSearch.m */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +74,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17015440175FC468006BED53 /* FYDDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYDDatePicker.h; sourceTree = "<group>"; };
+		17015441175FC468006BED53 /* FYDDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDDatePicker.m; sourceTree = "<group>"; };
 		173C7C0F1757F419004E791B /* FYDBookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYDBookCell.h; sourceTree = "<group>"; };
 		173C7C101757F419004E791B /* FYDBookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDBookCell.m; sourceTree = "<group>"; };
 		174BE1881757BE930096037A /* keepreading.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = keepreading.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +149,32 @@
 		17B13C3C175CD7AA00E935DA /* FYDAddBookMetadataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYDAddBookMetadataViewController.h; sourceTree = "<group>"; };
 		17B13C3D175CD7AA00E935DA /* FYDAddBookMetadataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDAddBookMetadataViewController.m; sourceTree = "<group>"; };
 		17B2C1F0175F9B1B0042F0C1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		17E3DB7D17624E1E00AD4A74 /* Kal.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Kal.bundle; sourceTree = "<group>"; };
+		17E3DB7F17624E3400AD4A74 /* Kal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kal.h; sourceTree = "<group>"; };
+		17E3DB8017624E3400AD4A74 /* KalDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KalDataSource.h; sourceTree = "<group>"; };
+		17E3DB8117624E3400AD4A74 /* KalDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KalDate.h; sourceTree = "<group>"; };
+		17E3DB8217624E3400AD4A74 /* KalGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KalGridView.h; sourceTree = "<group>"; };
+		17E3DB8317624E3400AD4A74 /* KalLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KalLogic.h; sourceTree = "<group>"; };
+		17E3DB8417624E3400AD4A74 /* KalMonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KalMonthView.h; sourceTree = "<group>"; };
+		17E3DB8517624E3400AD4A74 /* KalPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KalPrivate.h; sourceTree = "<group>"; };
+		17E3DB8617624E3400AD4A74 /* KalTileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KalTileView.h; sourceTree = "<group>"; };
+		17E3DB8717624E3400AD4A74 /* KalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KalView.h; sourceTree = "<group>"; };
+		17E3DB8817624E3400AD4A74 /* KalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KalViewController.h; sourceTree = "<group>"; };
+		17E3DB8917624E3400AD4A74 /* NSDateAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDateAdditions.h; sourceTree = "<group>"; };
+		17E3DB8A17624E3400AD4A74 /* UIViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewAdditions.h; sourceTree = "<group>"; };
+		17E3DB8B17624E3400AD4A74 /* Kal_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kal_Prefix.pch; sourceTree = "<group>"; };
+		17E3DB8C17624E3400AD4A74 /* KalDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KalDataSource.m; sourceTree = "<group>"; };
+		17E3DB8D17624E3400AD4A74 /* KalDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KalDate.m; sourceTree = "<group>"; };
+		17E3DB8E17624E3400AD4A74 /* KalGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KalGridView.m; sourceTree = "<group>"; };
+		17E3DB8F17624E3400AD4A74 /* KalLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KalLogic.m; sourceTree = "<group>"; };
+		17E3DB9017624E3400AD4A74 /* KalMonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KalMonthView.m; sourceTree = "<group>"; };
+		17E3DB9117624E3400AD4A74 /* KalTileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KalTileView.m; sourceTree = "<group>"; };
+		17E3DB9217624E3400AD4A74 /* KalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KalView.m; sourceTree = "<group>"; };
+		17E3DB9317624E3400AD4A74 /* KalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KalViewController.m; sourceTree = "<group>"; };
+		17E3DB9417624E3400AD4A74 /* NSDateAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateAdditions.m; sourceTree = "<group>"; };
+		17E3DB9517624E3400AD4A74 /* UIViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewAdditions.m; sourceTree = "<group>"; };
+		17E3DBA01762517300AD4A74 /* FYDMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYDMainViewController.h; sourceTree = "<group>"; };
+		17E3DBA11762517300AD4A74 /* FYDMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDMainViewController.m; sourceTree = "<group>"; };
 		17EF7A591757DA1A00832D01 /* FYDBookSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYDBookSearch.h; sourceTree = "<group>"; };
 		17EF7A5A1757DA1A00832D01 /* FYDBookSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDBookSearch.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -178,6 +219,8 @@
 				177CCE16175CEBB1003A96C0 /* FYDKeyboardNavigationToolbar.m */,
 				177CCE1B175D0608003A96C0 /* FYDAddBookHeaderView.h */,
 				177CCE1C175D0608003A96C0 /* FYDAddBookHeaderView.m */,
+				17015440175FC468006BED53 /* FYDDatePicker.h */,
+				17015441175FC468006BED53 /* FYDDatePicker.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -238,6 +281,7 @@
 		174BE1921757BE930096037A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				17E3DB7C17624E0D00AD4A74 /* Kal */,
 				174BE1931757BE930096037A /* keepreading-Info.plist */,
 				174BE1941757BE930096037A /* InfoPlist.strings */,
 				174BE1971757BE930096037A /* main.m */,
@@ -277,6 +321,8 @@
 				176138E2175A916E003BD612 /* FYDAddBookSearchResultsController.m */,
 				17B13C3C175CD7AA00E935DA /* FYDAddBookMetadataViewController.h */,
 				17B13C3D175CD7AA00E935DA /* FYDAddBookMetadataViewController.m */,
+				17E3DBA01762517300AD4A74 /* FYDMainViewController.h */,
+				17E3DBA11762517300AD4A74 /* FYDMainViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -378,6 +424,37 @@
 			name = UI;
 			sourceTree = "<group>";
 		};
+		17E3DB7C17624E0D00AD4A74 /* Kal */ = {
+			isa = PBXGroup;
+			children = (
+				17E3DB7F17624E3400AD4A74 /* Kal.h */,
+				17E3DB8017624E3400AD4A74 /* KalDataSource.h */,
+				17E3DB8117624E3400AD4A74 /* KalDate.h */,
+				17E3DB8217624E3400AD4A74 /* KalGridView.h */,
+				17E3DB8317624E3400AD4A74 /* KalLogic.h */,
+				17E3DB8417624E3400AD4A74 /* KalMonthView.h */,
+				17E3DB8517624E3400AD4A74 /* KalPrivate.h */,
+				17E3DB8617624E3400AD4A74 /* KalTileView.h */,
+				17E3DB8717624E3400AD4A74 /* KalView.h */,
+				17E3DB8817624E3400AD4A74 /* KalViewController.h */,
+				17E3DB8917624E3400AD4A74 /* NSDateAdditions.h */,
+				17E3DB8A17624E3400AD4A74 /* UIViewAdditions.h */,
+				17E3DB8B17624E3400AD4A74 /* Kal_Prefix.pch */,
+				17E3DB8C17624E3400AD4A74 /* KalDataSource.m */,
+				17E3DB8D17624E3400AD4A74 /* KalDate.m */,
+				17E3DB8E17624E3400AD4A74 /* KalGridView.m */,
+				17E3DB8F17624E3400AD4A74 /* KalLogic.m */,
+				17E3DB9017624E3400AD4A74 /* KalMonthView.m */,
+				17E3DB9117624E3400AD4A74 /* KalTileView.m */,
+				17E3DB9217624E3400AD4A74 /* KalView.m */,
+				17E3DB9317624E3400AD4A74 /* KalViewController.m */,
+				17E3DB9417624E3400AD4A74 /* NSDateAdditions.m */,
+				17E3DB9517624E3400AD4A74 /* UIViewAdditions.m */,
+				17E3DB7D17624E1E00AD4A74 /* Kal.bundle */,
+			);
+			name = Kal;
+			sourceTree = "<group>";
+		};
 		17EF7A581757D9F800832D01 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -474,6 +551,7 @@
 				1761390D175C0378003BD612 /* zbar-samples.png in Resources */,
 				177CCE14175CEA6D003A96C0 /* KeyboardNavigationToolbar.xib in Resources */,
 				177CCE1A175D01EA003A96C0 /* AddWordHeaderView.xib in Resources */,
+				17E3DB7E17624E1E00AD4A74 /* Kal.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +597,18 @@
 				17B13C3E175CD7AA00E935DA /* FYDAddBookMetadataViewController.m in Sources */,
 				177CCE17175CEBB1003A96C0 /* FYDKeyboardNavigationToolbar.m in Sources */,
 				177CCE1D175D0608003A96C0 /* FYDAddBookHeaderView.m in Sources */,
+				17015442175FC468006BED53 /* FYDDatePicker.m in Sources */,
+				17E3DBA21762517300AD4A74 /* FYDMainViewController.m in Sources */,
+				17E3DBA3176252F100AD4A74 /* KalDataSource.m in Sources */,
+				17E3DBA4176252F100AD4A74 /* KalDate.m in Sources */,
+				17E3DBA5176252F100AD4A74 /* KalGridView.m in Sources */,
+				17E3DBA6176252F100AD4A74 /* KalLogic.m in Sources */,
+				17E3DBA7176252F100AD4A74 /* KalMonthView.m in Sources */,
+				17E3DBA8176252F100AD4A74 /* KalTileView.m in Sources */,
+				17E3DBA9176252F100AD4A74 /* KalView.m in Sources */,
+				17E3DBAA176252F100AD4A74 /* KalViewController.m in Sources */,
+				17E3DBAB176252F100AD4A74 /* NSDateAdditions.m in Sources */,
+				17E3DBAC176252F100AD4A74 /* UIViewAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
