@@ -17,8 +17,10 @@
 @property (strong, nonatomic) NSString *publisher;
 @property (assign, nonatomic) NSUInteger firstPage;
 @property (assign, nonatomic) NSUInteger lastPage;
-@property (strong, nonatomic) NSURL *thumbnailURL;
 @property (strong, nonatomic) NSString *isbn;
+
+- (void)setThumbnailURL:(NSURL*)url;
+- (void)setThumbnailImage:(UIImage*)image;
 
 - (void)loadThumbnail:(void(^)(UIImage*,NSError*))completionHandler;
 

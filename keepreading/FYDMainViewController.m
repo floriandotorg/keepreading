@@ -43,7 +43,7 @@
     
     FYDBook *book = [[FYDBook alloc] init];
     book.title = @"Test Book";
-    book.firstPage = 1;
+    book.firstPage = 10;
     book.lastPage = 100;
     [self.library addReading:book];
     
@@ -149,7 +149,7 @@
 {
     self.pageActionSheetDay = day;
     self.pageActionSheetRange = day.pageRange;
-    self.pageActionSheetCurrentPage = self.pageActionSheetRange.location;
+    self.pageActionSheetCurrentPage = day.currentPage;
     
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                              delegate:nil
@@ -165,6 +165,7 @@
     pickerView.showsSelectionIndicator = YES;
     pickerView.dataSource = self;
     pickerView.delegate = self;
+    [pickerView selectRow:self.pageActionSheetCurrentPage - self.pageActionSheetRange.location inComponent:1 animated:NO];
     
     [actionSheet addSubview:pickerView];
     
@@ -193,17 +194,31 @@
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return self.pageActionSheetRange.length - self.pageActionSheetRange.location + 1;
+    if (component == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        return self.pageActionSheetRange.length - self.pageActionSheetRange.location + 1;
+    }
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return [NSString stringWithFormat:@"%i", self.pageActionSheetRange.location + row];
+    if (component == 0)
+    {
+        return @"Page";
+    }
+    else
+    {
+        return [NSString stringWithFormat:@"%i", self.pageActionSheetRange.location + row];
+    }
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component

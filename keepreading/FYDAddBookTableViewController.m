@@ -67,6 +67,9 @@
 {
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
     
+    self.photoLibraryButtonIndex = NSIntegerMin;
+    self.cameraButtonIndex = NSIntegerMin;
+    
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
     {
         self.photoLibraryButtonIndex = [actionSheet addButtonWithTitle:@"Choose From Library"];
@@ -115,7 +118,10 @@
 {
     if (info[UIImagePickerControllerEditedImage] != nil)
     {
-        [self.addBookHeaderView.imageButton setBackgroundImage:info[UIImagePickerControllerEditedImage] forState:UIControlStateNormal];
+        UIImage *thumbnail = info[UIImagePickerControllerEditedImage];
+        
+        [self.book setThumbnailImage:thumbnail];
+        [self.addBookHeaderView.imageButton setBackgroundImage:thumbnail forState:UIControlStateNormal];
     }
     else if (info[ZBarReaderControllerResults]  != nil)
     {

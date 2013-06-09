@@ -45,7 +45,7 @@
     
     if (loc == 0)
     {
-        loc = 1;
+        loc = self.bookReading.book.firstPage;
     }
     
     if (len == 0)
@@ -72,7 +72,7 @@
         }
         else
         {
-            return self.prev.currentPage;
+            return prevDay.currentPage;
         }
     }
     else
@@ -101,7 +101,16 @@
     }
     else
     {
-        return self.pageNo - self.prev.pageNo;
+        FYDBookReadingDay *prevDay = self.prev;
+        
+        if (prevDay == nil)
+        {
+            return self.pageNo - self.bookReading.book.firstPage;
+        }
+        else
+        {
+            return self.pageNo - self.prev.pageNo;
+        }
     }
 }
 
