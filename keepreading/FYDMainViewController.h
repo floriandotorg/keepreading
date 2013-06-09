@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#import "FYDAddBookTableViewController.h"
 #import "FYDDatePicker.h"
 
-@interface FYDMainViewController : UIViewController<FYDDatePickerDelegate>
+@interface FYDMainViewController : UIViewController<FYDDatePickerDelegate, UITableViewDataSource, UITableViewDelegate, FYDAddBookTableViewControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
 @end

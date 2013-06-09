@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		17015442175FC468006BED53 /* FYDDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 17015441175FC468006BED53 /* FYDDatePicker.m */; };
+		1729A3F41763A94900988387 /* FYDBookReading.m in Sources */ = {isa = PBXBuildFile; fileRef = 1729A3F31763A94900988387 /* FYDBookReading.m */; };
+		1729A3F71763A95900988387 /* FYDBookReadingDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 1729A3F61763A95900988387 /* FYDBookReadingDay.m */; };
+		172A88BA1763C8B800A36DD7 /* PageNoActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 172A88B91763C8B800A36DD7 /* PageNoActionSheet.xib */; };
+		172A88BD1763D74200A36DD7 /* NSDate+dateWithClearedTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 172A88BC1763D74200A36DD7 /* NSDate+dateWithClearedTime.m */; };
+		172A88C01764CD6700A36DD7 /* NSDate+dateByAddDays.m in Sources */ = {isa = PBXBuildFile; fileRef = 172A88BF1764CD6700A36DD7 /* NSDate+dateByAddDays.m */; };
 		173C7C111757F419004E791B /* FYDBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 173C7C101757F419004E791B /* FYDBookCell.m */; };
 		174BE18C1757BE930096037A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174BE18B1757BE930096037A /* UIKit.framework */; };
 		174BE18E1757BE930096037A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174BE18D1757BE930096037A /* Foundation.framework */; };
@@ -46,6 +51,7 @@
 		177CCE17175CEBB1003A96C0 /* FYDKeyboardNavigationToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 177CCE16175CEBB1003A96C0 /* FYDKeyboardNavigationToolbar.m */; };
 		177CCE1A175D01EA003A96C0 /* AddWordHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 177CCE19175D01EA003A96C0 /* AddWordHeaderView.xib */; };
 		177CCE1D175D0608003A96C0 /* FYDAddBookHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 177CCE1C175D0608003A96C0 /* FYDAddBookHeaderView.m */; };
+		178D6BC51763ADF1003B3699 /* FYDBookReadingDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 178D6BC41763ADF1003B3699 /* FYDBookReadingDayCell.m */; };
 		17B13C3E175CD7AA00E935DA /* FYDAddBookMetadataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B13C3D175CD7AA00E935DA /* FYDAddBookMetadataViewController.m */; };
 		17B2C1F1175F9B1B0042F0C1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B2C1F0175F9B1B0042F0C1 /* MobileCoreServices.framework */; };
 		17E3DB7E17624E1E00AD4A74 /* Kal.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17E3DB7D17624E1E00AD4A74 /* Kal.bundle */; };
@@ -76,6 +82,15 @@
 /* Begin PBXFileReference section */
 		17015440175FC468006BED53 /* FYDDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYDDatePicker.h; sourceTree = "<group>"; };
 		17015441175FC468006BED53 /* FYDDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDDatePicker.m; sourceTree = "<group>"; };
+		1729A3F21763A94900988387 /* FYDBookReading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYDBookReading.h; sourceTree = "<group>"; };
+		1729A3F31763A94900988387 /* FYDBookReading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDBookReading.m; sourceTree = "<group>"; };
+		1729A3F51763A95900988387 /* FYDBookReadingDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYDBookReadingDay.h; sourceTree = "<group>"; };
+		1729A3F61763A95900988387 /* FYDBookReadingDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDBookReadingDay.m; sourceTree = "<group>"; };
+		172A88B91763C8B800A36DD7 /* PageNoActionSheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageNoActionSheet.xib; sourceTree = "<group>"; };
+		172A88BB1763D74200A36DD7 /* NSDate+dateWithClearedTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+dateWithClearedTime.h"; sourceTree = "<group>"; };
+		172A88BC1763D74200A36DD7 /* NSDate+dateWithClearedTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+dateWithClearedTime.m"; sourceTree = "<group>"; };
+		172A88BE1764CD6600A36DD7 /* NSDate+dateByAddDays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+dateByAddDays.h"; sourceTree = "<group>"; };
+		172A88BF1764CD6700A36DD7 /* NSDate+dateByAddDays.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+dateByAddDays.m"; sourceTree = "<group>"; };
 		173C7C0F1757F419004E791B /* FYDBookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYDBookCell.h; sourceTree = "<group>"; };
 		173C7C101757F419004E791B /* FYDBookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDBookCell.m; sourceTree = "<group>"; };
 		174BE1881757BE930096037A /* keepreading.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = keepreading.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +161,8 @@
 		177CCE19175D01EA003A96C0 /* AddWordHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddWordHeaderView.xib; sourceTree = "<group>"; };
 		177CCE1B175D0608003A96C0 /* FYDAddBookHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYDAddBookHeaderView.h; sourceTree = "<group>"; };
 		177CCE1C175D0608003A96C0 /* FYDAddBookHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDAddBookHeaderView.m; sourceTree = "<group>"; };
+		178D6BC31763ADF1003B3699 /* FYDBookReadingDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYDBookReadingDayCell.h; sourceTree = "<group>"; };
+		178D6BC41763ADF1003B3699 /* FYDBookReadingDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDBookReadingDayCell.m; sourceTree = "<group>"; };
 		17B13C3C175CD7AA00E935DA /* FYDAddBookMetadataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYDAddBookMetadataViewController.h; sourceTree = "<group>"; };
 		17B13C3D175CD7AA00E935DA /* FYDAddBookMetadataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDAddBookMetadataViewController.m; sourceTree = "<group>"; };
 		17B2C1F0175F9B1B0042F0C1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -221,6 +238,8 @@
 				177CCE1C175D0608003A96C0 /* FYDAddBookHeaderView.m */,
 				17015440175FC468006BED53 /* FYDDatePicker.h */,
 				17015441175FC468006BED53 /* FYDDatePicker.m */,
+				178D6BC31763ADF1003B3699 /* FYDBookReadingDayCell.h */,
+				178D6BC41763ADF1003B3699 /* FYDBookReadingDayCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -334,6 +353,10 @@
 				174BE1CF1757C60B0096037A /* FYDLibrary.m */,
 				174BE1D21757C7100096037A /* FYDBook.h */,
 				174BE1D31757C7100096037A /* FYDBook.m */,
+				1729A3F21763A94900988387 /* FYDBookReading.h */,
+				1729A3F31763A94900988387 /* FYDBookReading.m */,
+				1729A3F51763A95900988387 /* FYDBookReadingDay.h */,
+				1729A3F61763A95900988387 /* FYDBookReadingDay.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -420,6 +443,7 @@
 				176138E6175B4FD0003BD612 /* LoadingCell.xib */,
 				177CCE13175CEA6D003A96C0 /* KeyboardNavigationToolbar.xib */,
 				177CCE19175D01EA003A96C0 /* AddWordHeaderView.xib */,
+				172A88B91763C8B800A36DD7 /* PageNoActionSheet.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -460,6 +484,10 @@
 			children = (
 				17EF7A591757DA1A00832D01 /* FYDBookSearch.h */,
 				17EF7A5A1757DA1A00832D01 /* FYDBookSearch.m */,
+				172A88BB1763D74200A36DD7 /* NSDate+dateWithClearedTime.h */,
+				172A88BC1763D74200A36DD7 /* NSDate+dateWithClearedTime.m */,
+				172A88BE1764CD6600A36DD7 /* NSDate+dateByAddDays.h */,
+				172A88BF1764CD6700A36DD7 /* NSDate+dateByAddDays.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -552,6 +580,7 @@
 				177CCE14175CEA6D003A96C0 /* KeyboardNavigationToolbar.xib in Resources */,
 				177CCE1A175D01EA003A96C0 /* AddWordHeaderView.xib in Resources */,
 				17E3DB7E17624E1E00AD4A74 /* Kal.bundle in Resources */,
+				172A88BA1763C8B800A36DD7 /* PageNoActionSheet.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,6 +638,11 @@
 				17E3DBAA176252F100AD4A74 /* KalViewController.m in Sources */,
 				17E3DBAB176252F100AD4A74 /* NSDateAdditions.m in Sources */,
 				17E3DBAC176252F100AD4A74 /* UIViewAdditions.m in Sources */,
+				1729A3F41763A94900988387 /* FYDBookReading.m in Sources */,
+				1729A3F71763A95900988387 /* FYDBookReadingDay.m in Sources */,
+				178D6BC51763ADF1003B3699 /* FYDBookReadingDayCell.m in Sources */,
+				172A88BD1763D74200A36DD7 /* NSDate+dateWithClearedTime.m in Sources */,
+				172A88C01764CD6700A36DD7 /* NSDate+dateByAddDays.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

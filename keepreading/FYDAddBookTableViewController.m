@@ -166,6 +166,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)cancelButtonClick:(UIBarButtonItem *)sender
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (IBAction)saveButtonClick:(UIBarButtonItem *)sender
+{
+    [self.delegate addBookTableViewController:self addBook:self.book];
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 - (void)createBarcodeButton
 {
     for (UIView *subview in self.searchBar.subviews)

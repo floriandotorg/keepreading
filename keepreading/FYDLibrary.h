@@ -12,6 +12,7 @@
 
 @interface FYDLibrary : NSObject
 
-- (void)addBook:(FYDBook*)book;
+- (void)addReading:(FYDBook*)book;
+- (NSArray*)readingsForDate:(NSDate*)date;
 
 @end

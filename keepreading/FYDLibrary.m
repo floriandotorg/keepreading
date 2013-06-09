@@ -9,11 +9,11 @@
 #import "FYDLibrary.h"
 
 #import "FYDBook.h"
+#import "FYDBookReading.h"
 
 @interface FYDLibrary ()
 
-@property (strong, nonatomic) NSMutableArray *bookArray;
-@property (strong, nonatomic) NSDictionary *readDictionary;
+@property (strong, nonatomic) NSMutableArray *bookReadingArray;
 
 @end
 
@@ -23,16 +23,20 @@
 {
     if (self = [super init])
     {
-        self.bookArray = [[NSMutableArray alloc] init];
-        self.readDictionary = [[NSDictionary alloc] init];
+        self.bookReadingArray = [[NSMutableArray alloc] init];
     }
     
     return self;
 }
 
-- (void)addBook:(FYDBook*)book
+- (void)addReading:(FYDBook*)book
 {
-    [self.bookArray addObject:book];
+    [self.bookReadingArray addObject:[[FYDBookReading alloc] initWithBook:book]];
+}
+
+- (NSArray*)readingsForDate:(NSDate*)date
+{
+    return self.bookReadingArray;
 }
 
 @end

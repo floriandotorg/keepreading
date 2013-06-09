@@ -15,6 +15,16 @@
 
 #import "ZBarSDK.h"
 
+@class FYDAddBookTableViewController;
+
+@protocol FYDAddBookTableViewControllerDelegate <NSObject>
+
+- (void)addBookTableViewController:(FYDAddBookTableViewController*)tableViewController addBook:(FYDBook*)book;
+
+@end
+
 @interface FYDAddBookTableViewController : UITableViewController<ZBarReaderDelegate, FYDAddBookSearchResultsControllerDelegate, FYDKeyboardNavigationToolbarDelegate, UITextFieldDelegate, UITableViewDelegate, FYDAddBookHeaderViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, FYDBookSearchDelegate>
+
+@property id<FYDAddBookTableViewControllerDelegate> delegate;
 
 @end

@@ -8,6 +8,9 @@
 
 #import "FYDDatePicker.h"
 
+#import "NSDate+dateWithClearedTime.h"
+#import "NSDate+dateByAddDays.h"
+
 ////////////// Kal
 
 #import "Kal.h"
@@ -85,7 +88,7 @@
     
     self.visibleLabels = [[NSMutableArray alloc] init];
     self.labelDateMap = [[NSMutableDictionary alloc] init];
-    self.currentDate = [NSDate date];
+    self.currentDate = [[NSDate date] dateWithClearedTime];
     
     self.weekdayLabel = [[UILabel alloc] init];
     self.weekdayLabel.font = [UIFont boldSystemFontOfSize:11.0];
@@ -226,8 +229,13 @@ static CGPoint CenterOfRect(CGRect rect)
 {
     if ([self.datePickerDelegate respondsToSelector:@selector(datePicker:didPickDate:)])
     {
-        [self.datePickerDelegate datePicker:self didPickDate:self.currentDate];
+        [self.datePickerDelegate datePicker:self didPickDate:[self.currentDate dateWithClearedTime]];
     }
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+    [self callDelegateDidPickDate];
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
@@ -323,14 +331,6 @@ static CGPoint CenterOfRect(CGRect rect)
     return CGRectGetMinX(frame);
 }
 
-- (NSDate*)addDays:(NSInteger)days ToDate:(NSDate*)date
-{
-    NSDateComponents *components = [[NSDateComponents alloc] init];
-    components.day = days;
-    
-    return [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:date options:0];
-}
-
 - (void)tileLabelsFromMinX:(CGFloat)minimumVisibleX toMaxX:(CGFloat)maximumVisibleX
 {
     if (self.visibleLabels.count == 0)
@@ -349,7 +349,7 @@ static CGPoint CenterOfRect(CGRect rect)
     CGFloat rightEdge = CGRectGetMaxX(lastLabel.frame);
     while (rightEdge < maximumVisibleX)
     {
-        rightEdge = [self placeNewLabelOnRight:rightEdge withDate:[self addDays:1 ToDate:[self.labelDateMap objectForKey:[self stringPersonalityOfPointer:[self.visibleLabels lastObject]]]]];
+        rightEdge = [self placeNewLabelOnRight:rightEdge withDate:[[self.labelDateMap objectForKey:[self stringPersonalityOfPointer:[self.visibleLabels lastObject]]] dateByAddDays:1]];
     }
 
     // add labels that are missing on left side
@@ -357,7 +357,7 @@ static CGPoint CenterOfRect(CGRect rect)
     CGFloat leftEdge = CGRectGetMinX(firstLabel.frame);
     while (leftEdge > minimumVisibleX)
     {
-        leftEdge = [self placeNewLabelOnLeft:leftEdge withDate:[self addDays:-1 ToDate:[self.labelDateMap objectForKey:[self stringPersonalityOfPointer:[self.visibleLabels objectAtIndex:0]]]]];
+        leftEdge = [self placeNewLabelOnLeft:leftEdge withDate:[[self.labelDateMap objectForKey:[self stringPersonalityOfPointer:[self.visibleLabels objectAtIndex:0]]] dateByAddDays:-1]];
     }
 
     // remove labels that have fallen off right edge
