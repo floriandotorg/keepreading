@@ -12,7 +12,10 @@
 
 @interface FYDLibrary : NSObject
 
+@property (assign, nonatomic) NSUInteger goal;
+
 - (void)addReading:(FYDBook*)book;
 - (NSArray*)readingsForDate:(NSDate*)date;
+- (NSUInteger)pagesReadAtDate:(NSDate*)date;
 
 @end

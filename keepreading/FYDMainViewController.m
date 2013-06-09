@@ -17,6 +17,8 @@
 
 @property (weak, nonatomic) IBOutlet FYDDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *readLabel;
+@property (weak, nonatomic) IBOutlet UILabel *goalLabel;
 
 @property (assign, nonatomic) NSRange pageActionSheetRange;
 @property (strong, nonatomic) FYDBookReadingDay *pageActionSheetDay;
@@ -40,6 +42,7 @@
 - (void)awakeFromNib
 {
     self.library = [[FYDLibrary alloc] init];
+    self.library.goal = 50;
     
     FYDBook *book = [[FYDBook alloc] init];
     book.title = @"Test Book";
@@ -49,6 +52,9 @@
     
     [self view]; //force view to load
     self.datePicker.datePickerDelegate = self;
+    
+    [self reloadData];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 - (void)viewDidLoad
@@ -67,12 +73,36 @@
 {
     [self setDatePicker:nil];
     [self setTableView:nil];
+    [self setGoalLabel:nil];
+    [self setReadLabel:nil];
     [super viewDidUnload];
 }
 
 - (FYDBookReadingDay*)readingDayForRow:(NSInteger)row
 {
     return [[self.library readingsForDate:self.datePicker.currentDate][row] dayForDate:self.datePicker.currentDate];
+}
+
+- (void)reloadData
+{
+    [self.tableView reloadData];
+    
+    NSUInteger goal = self.library.goal;
+    NSUInteger pagesRead = [self.library pagesReadAtDate:self.datePicker.currentDate];
+    
+    self.goalLabel.text = [NSString stringWithFormat:@"%i", goal];
+    self.readLabel.text = [NSString stringWithFormat:@"%i", pagesRead];
+    
+    if (pagesRead < goal)
+    {
+        self.readLabel.textColor = [UIColor redColor];
+        self.readLabel.font = [UIFont boldSystemFontOfSize:17.0];
+    }
+    else
+    {
+        self.readLabel.textColor = [UIColor blackColor];
+        self.readLabel.font = [UIFont systemFontOfSize:17.0];
+    }
 }
 
 #pragma mark - Date Picker Delegate
@@ -84,7 +114,7 @@
 
 - (void)datePicker:(FYDDatePicker *)datePicker didPickDate:(NSDate *)date
 {
-    [self.tableView reloadData];
+    [self reloadData];
 }
 
 #pragma mark - Prepare For Segue
@@ -105,7 +135,7 @@
 {
     [self.library addReading:book];
     
-    [self.tableView reloadData];
+    [self reloadData];
 }
 
 #pragma mark - Table View
@@ -185,7 +215,7 @@
 - (void)dismissActionSheet:(UISegmentedControl*)segmentedControl
 {
     self.pageActionSheetDay.currentPage = self.pageActionSheetCurrentPage;
-    [self.tableView reloadData];
+    [self reloadData];
     
     [(UIActionSheet*)segmentedControl.superview dismissWithClickedButtonIndex:0 animated:YES];
 

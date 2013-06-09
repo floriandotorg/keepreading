@@ -39,4 +39,16 @@
     return self.bookReadingArray;
 }
 
+- (NSUInteger)pagesReadAtDate:(NSDate*)date
+{
+    NSUInteger result = 0;
+    
+    for (FYDBookReading *reading in [self readingsForDate:date])
+    {
+        result += [reading dayForDate:date].pagesRead;
+    }
+    
+    return result;
+}
+
 @end
