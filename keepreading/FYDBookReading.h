@@ -22,4 +22,7 @@
 - (FYDBookReadingDay*)previousDay:(FYDBookReadingDay*)day;
 - (FYDBookReadingDay*)nextDay:(FYDBookReadingDay*)day;
 
+- (void)encodeWithCoder:(NSCoder *)aCoder;
+- (id)initWithCoder:(NSCoder *)aDecoder;
+
 @end

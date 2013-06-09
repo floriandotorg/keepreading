@@ -61,4 +61,48 @@
     }
 }
 
+#pragma mark - Persistent State
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.title forKey:@"title"];
+    [aCoder encodeObject:self.subtitle forKey:@"subtitle"];
+    [aCoder encodeObject:self.author forKey:@"author"];
+    [aCoder encodeObject:self.publishedDate forKey:@"publishedDate"];
+    [aCoder encodeObject:self.publisher forKey:@"publisher"];
+    [aCoder encodeInteger:self.firstPage forKey:@"firstPage"];
+    [aCoder encodeInteger:self.lastPage forKey:@"lastPage"];
+    [aCoder encodeObject:self.isbn forKey:@"isbn"];
+    [aCoder encodeObject:self.thumbnailURL forKey:@"thumbnailURL"];
+    [aCoder encodeObject:self.thumbnailImage forKey:@"thumbnailImage"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init])
+    {
+        self.title = [aDecoder decodeObjectForKey:@"title"];
+        self.subtitle = [aDecoder decodeObjectForKey:@"subtitle"];
+        self.author = [aDecoder decodeObjectForKey:@"author"];
+        self.publishedDate = [aDecoder decodeObjectForKey:@"publishedDate"];
+        self.publisher = [aDecoder decodeObjectForKey:@"publisher"];
+        self.firstPage = [aDecoder decodeIntegerForKey:@"firstPage"];
+        self.lastPage = [aDecoder decodeIntegerForKey:@"lastPage"];
+        self.isbn = [aDecoder decodeObjectForKey:@"isbn"];
+        
+        NSURL *url = [aDecoder decodeObjectForKey:@"thumbnailURL"];
+        UIImage *image = [aDecoder decodeObjectForKey:@"thumbnailImage"];
+        
+        if (image != nil)
+        {
+            self.thumbnailImage = image;
+        }
+        else
+        {
+            self.thumbnailURL = url;
+        }
+    }
+    return self;
+}
+
 @end

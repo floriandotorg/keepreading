@@ -24,4 +24,7 @@
 
 - (void)loadThumbnail:(void(^)(UIImage*,NSError*))completionHandler;
 
+- (void)encodeWithCoder:(NSCoder *)aCoder;
+- (id)initWithCoder:(NSCoder *)aDecoder;
+
 @end

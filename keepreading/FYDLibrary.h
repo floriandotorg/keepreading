@@ -18,4 +18,7 @@
 - (NSArray*)readingsForDate:(NSDate*)date;
 - (NSUInteger)pagesReadAtDate:(NSDate*)date;
 
+- (void)encodeWithCoder:(NSCoder *)aCoder;
+- (id)initWithCoder:(NSCoder *)aDecoder;
+
 @end

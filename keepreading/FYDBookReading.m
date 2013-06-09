@@ -10,6 +10,7 @@
 
 @interface FYDBookReadingDay ()
 
+@property (weak, nonatomic) FYDBookReading *bookReading;
 @property (assign, nonatomic, readonly) NSUInteger pageNo;
 
 @end
@@ -106,6 +107,29 @@
     {
         return nil;
     }
+}
+
+#pragma mark - Persistent State
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.book forKey:@"book"];
+    [aCoder encodeObject:self.dayArray forKey:@"dayArray"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init])
+    {
+        self.book = [aDecoder decodeObjectForKey:@"book"];
+        self.dayArray = [aDecoder decodeObjectForKey:@"dayArray"];
+        
+        for (NSDate *date in self.dayArray)
+        {
+            [self.dayArray[date] setBookReading:self];
+        }
+    }
+    return self;
 }
 
 @end

@@ -51,4 +51,22 @@
     return result;
 }
 
+#pragma mark - Persistent State
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeInteger:self.goal forKey:@"goal"];
+    [aCoder encodeObject:self.bookReadingArray forKey:@"bookReadingArray"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init])
+    {
+        self.goal = [aDecoder decodeIntegerForKey:@"goal"];
+        self.bookReadingArray = [aDecoder decodeObjectForKey:@"bookReadingArray"];
+    }
+    return self;
+}
+
 @end

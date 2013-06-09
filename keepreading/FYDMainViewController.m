@@ -41,15 +41,20 @@
 
 - (void)awakeFromNib
 {
-    self.library = [[FYDLibrary alloc] init];
-    self.library.goal = 50;
+    [self loadLibrary];
     
-    FYDBook *book = [[FYDBook alloc] init];
-    book.title = @"Test Book";
-    book.firstPage = 10;
-    book.lastPage = 100;
-    [self.library addReading:book];
-    
+    if (self.library == nil)
+    {
+        self.library = [[FYDLibrary alloc] init];
+        self.library.goal = 50;
+        
+        FYDBook *book = [[FYDBook alloc] init];
+        book.title = @"Test Book";
+        book.firstPage = 10;
+        book.lastPage = 100;
+        [self.library addReading:book];
+    }
+
     [self view]; //force view to load
     self.datePicker.datePickerDelegate = self;
     
@@ -85,6 +90,8 @@
 
 - (void)reloadData
 {
+    [self saveLibrary];
+    
     [self.tableView reloadData];
     
     NSUInteger goal = self.library.goal;
@@ -254,6 +261,66 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     self.pageActionSheetCurrentPage = self.pageActionSheetRange.location + row;
+}
+
+#pragma mark - Persistent State
+
+- (NSURL*)applicationDataDirectory
+{
+    NSFileManager* sharedFM = [NSFileManager defaultManager];
+    NSArray* possibleURLs = [sharedFM URLsForDirectory:NSApplicationSupportDirectory
+                                             inDomains:NSUserDomainMask];
+    NSURL* appSupportDir = nil;
+    NSURL* appDirectory = nil;
+    
+    if ([possibleURLs count] >= 1) {
+        // Use the first directory (if multiple are returned)
+        appSupportDir = [possibleURLs objectAtIndex:0];
+    }
+    
+    // If a valid app support directory exists, add the
+    // app's bundle ID to it to specify the final directory.
+    if (appSupportDir) {
+        NSString* appBundleID = [[NSBundle mainBundle] bundleIdentifier];
+        appDirectory = [appSupportDir URLByAppendingPathComponent:appBundleID];
+    }
+    
+    return appDirectory;
+}
+
+
+- (NSString*) pathToSavedFeeds
+{
+    NSURL *applicationSupportURL = [self applicationDataDirectory];
+    
+    if (! [[NSFileManager defaultManager] fileExistsAtPath:[applicationSupportURL path]])
+    {
+        NSError *error = nil;
+        
+        [[NSFileManager defaultManager] createDirectoryAtPath:[applicationSupportURL path]
+                                  withIntermediateDirectories:YES
+                                                   attributes:nil
+                                                        error:&error];
+        
+        if (error)
+        {
+            NSLog(@"error creating app support dir: %@", error);
+        }
+    }
+    
+    NSString *path = [[applicationSupportURL path] stringByAppendingPathComponent:@"library.plist"];
+    
+    return path;
+}
+
+- (void)loadLibrary
+{
+    self.library = [NSKeyedUnarchiver unarchiveObjectWithFile:[self pathToSavedFeeds]];
+}
+
+- (void)saveLibrary
+{
+    [NSKeyedArchiver archiveRootObject:self.library toFile:[self pathToSavedFeeds]];
 }
 
 @end

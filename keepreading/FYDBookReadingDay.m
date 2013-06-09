@@ -114,4 +114,20 @@
     }
 }
 
+#pragma mark - Persistent State
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeInteger:self.pageNo forKey:@"pageNo"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init])
+    {
+        self.pageNo = [aDecoder decodeIntegerForKey:@"pageNo"];
+    }
+    return self;
+}
+
 @end
