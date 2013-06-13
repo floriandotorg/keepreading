@@ -11,6 +11,6 @@
 #import "FYDAddBookTableViewController.h"
 #import "FYDDatePicker.h"
 
-@interface FYDMainViewController : UIViewController<FYDDatePickerDelegate, UITableViewDataSource, UITableViewDelegate, FYDAddBookTableViewControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
+@interface FYDMainViewController : UIViewController<FYDDatePickerDelegate, UITableViewDataSource, UITableViewDelegate, FYDAddBookTableViewControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UIAlertViewDelegate>
 
 @end

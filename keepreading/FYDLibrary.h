@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class FYDBook;
+@class FYDBookReading;
 
 @interface FYDLibrary : NSObject
 
@@ -16,6 +17,9 @@
 
 - (void)addReading:(FYDBook*)book;
 - (NSArray*)readingsForDate:(NSDate*)date;
+- (FYDBookReading*)readingNo:(NSUInteger)no ForDate:(NSDate*)date;
+- (void)moveReadingNo:(NSUInteger)from toNo:(NSUInteger)to AtDate:(NSDate*)date;
+- (void)deleteReading:(NSUInteger)no  AtDate:(NSDate*)date;
 - (NSUInteger)pagesReadAtDate:(NSDate*)date;
 
 - (void)encodeWithCoder:(NSCoder *)aCoder;

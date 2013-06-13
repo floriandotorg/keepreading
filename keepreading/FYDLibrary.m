@@ -39,6 +39,21 @@
     return self.bookReadingArray;
 }
 
+- (FYDBookReading*)readingNo:(NSUInteger)no ForDate:(NSDate*)date
+{
+    return self.bookReadingArray[no];
+}
+
+- (void)moveReadingNo:(NSUInteger)from toNo:(NSUInteger)to AtDate:(NSDate*)date
+{
+    [self.bookReadingArray exchangeObjectAtIndex:from withObjectAtIndex:to];
+}
+
+- (void)deleteReading:(NSUInteger)no  AtDate:(NSDate*)date
+{
+    [self.bookReadingArray removeObjectAtIndex:no];
+}
+
 - (NSUInteger)pagesReadAtDate:(NSDate*)date
 {
     NSUInteger result = 0;

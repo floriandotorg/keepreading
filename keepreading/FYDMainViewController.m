@@ -24,6 +24,8 @@
 @property (strong, nonatomic) FYDBookReadingDay *pageActionSheetDay;
 @property (assign, nonatomic) NSUInteger pageActionSheetCurrentPage;
 
+@property (strong, nonatomic) NSIndexPath *deletingIndexPath;
+
 @property (strong, nonatomic) FYDLibrary *library;
 
 @end
@@ -83,9 +85,14 @@
     [super viewDidUnload];
 }
 
+- (IBAction)editButtonClick:(UIButton *)sender
+{
+    [self.tableView setEditing:!self.tableView.editing animated:YES];
+}
+
 - (FYDBookReadingDay*)readingDayForRow:(NSInteger)row
 {
-    return [[self.library readingsForDate:self.datePicker.currentDate][row] dayForDate:self.datePicker.currentDate];
+    return [[self.library readingNo:row ForDate:self.datePicker.currentDate] dayForDate:self.datePicker.currentDate];
 }
 
 - (void)reloadData
@@ -175,9 +182,50 @@
     return cell;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self showPageActionSheet:[self readingDayForRow:indexPath.row]];
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    [self.library moveReadingNo:sourceIndexPath.row toNo:destinationIndexPath.row AtDate:self.datePicker.currentDate];
+    [self reloadData];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        self.deletingIndexPath = indexPath;
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Delete Book" message:@"This action cannot be undone." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
+        [alert show];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1)
+    {
+        [self.library deleteReading:self.deletingIndexPath.row AtDate:self.datePicker.currentDate];
+        
+        [UIView animateWithDuration:0.0 animations:^
+        {
+            [self.tableView beginUpdates];
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:self.deletingIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.tableView endUpdates];
+        }
+        completion:^(BOOL finished)
+        {
+            [self reloadData];
+        }];
+    }
 }
 
 #pragma mark - Page Action Sheet
@@ -289,7 +337,7 @@
 }
 
 
-- (NSString*) pathToSavedFeeds
+- (NSString*) pathToLibrary
 {
     NSURL *applicationSupportURL = [self applicationDataDirectory];
     
@@ -315,12 +363,12 @@
 
 - (void)loadLibrary
 {
-    self.library = [NSKeyedUnarchiver unarchiveObjectWithFile:[self pathToSavedFeeds]];
+    self.library = [NSKeyedUnarchiver unarchiveObjectWithFile:[self pathToLibrary]];
 }
 
 - (void)saveLibrary
 {
-    [NSKeyedArchiver archiveRootObject:self.library toFile:[self pathToSavedFeeds]];
+    [NSKeyedArchiver archiveRootObject:self.library toFile:[self pathToLibrary]];
 }
 
 @end
