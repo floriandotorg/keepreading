@@ -166,6 +166,11 @@
         [self createBarcodeButton];
     }
     
+    if (self.book == nil)
+    {
+        self.book = [[FYDBook alloc] init];
+    }
+    
     // update labels
     [self setBook:self.book];
 }

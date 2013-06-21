@@ -66,6 +66,7 @@
 		17E3DBAA176252F100AD4A74 /* KalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E3DB9317624E3400AD4A74 /* KalViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		17E3DBAB176252F100AD4A74 /* NSDateAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E3DB9417624E3400AD4A74 /* NSDateAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		17E3DBAC176252F100AD4A74 /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E3DB9517624E3400AD4A74 /* UIViewAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		17EC5F6017749FE9009E37F1 /* bookIcon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 17EC5F5F17749FE9009E37F1 /* bookIcon_114.png */; };
 		17EF7A5B1757DA1A00832D01 /* FYDBookSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 17EF7A5A1757DA1A00832D01 /* FYDBookSearch.m */; };
 /* End PBXBuildFile section */
 
@@ -192,6 +193,7 @@
 		17E3DB9517624E3400AD4A74 /* UIViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewAdditions.m; sourceTree = "<group>"; };
 		17E3DBA01762517300AD4A74 /* FYDMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYDMainViewController.h; sourceTree = "<group>"; };
 		17E3DBA11762517300AD4A74 /* FYDMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDMainViewController.m; sourceTree = "<group>"; };
+		17EC5F5F17749FE9009E37F1 /* bookIcon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookIcon_114.png; sourceTree = "<group>"; };
 		17EF7A591757DA1A00832D01 /* FYDBookSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYDBookSearch.h; sourceTree = "<group>"; };
 		17EF7A5A1757DA1A00832D01 /* FYDBookSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYDBookSearch.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -247,6 +249,7 @@
 		174BE17F1757BE930096037A = {
 			isa = PBXGroup;
 			children = (
+				17EC5F5F17749FE9009E37F1 /* bookIcon_114.png */,
 				174BE1911757BE930096037A /* keepreading */,
 				174BE1BB1757BE940096037A /* keepreadingTests */,
 				174BE18A1757BE930096037A /* Frameworks */,
@@ -581,6 +584,7 @@
 				177CCE1A175D01EA003A96C0 /* AddWordHeaderView.xib in Resources */,
 				17E3DB7E17624E1E00AD4A74 /* Kal.bundle in Resources */,
 				172A88BA1763C8B800A36DD7 /* PageNoActionSheet.xib in Resources */,
+				17EC5F6017749FE9009E37F1 /* bookIcon_114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
