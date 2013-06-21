@@ -27,4 +27,6 @@
 
 @property id<FYDAddBookTableViewControllerDelegate> delegate;
 
+- (void)editBook:(FYDBook*)book;
+
 @end

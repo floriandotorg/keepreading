@@ -31,7 +31,10 @@
 
 - (void)addReading:(FYDBook*)book
 {
-    [self.bookReadingArray addObject:[[FYDBookReading alloc] initWithBook:book]];
+    if ([self.bookReadingArray indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) { return [(FYDBookReading*)obj book] == book; }] == NSNotFound)
+    {
+        [self.bookReadingArray addObject:[[FYDBookReading alloc] initWithBook:book]];
+    } 
 }
 
 - (NSArray*)readingsForDate:(NSDate*)date

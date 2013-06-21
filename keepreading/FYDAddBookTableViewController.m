@@ -43,19 +43,31 @@
 
 @implementation FYDAddBookTableViewController
 
-- (void)createHeader
+- (void)editBook:(FYDBook*)book
+{
+    self.book = book;
+}
+
+- (void)createHeaderWithSearchBar:(BOOL)searchBarVisible
 {
     self.addBookHeaderView = [FYDAddBookHeaderView viewWithOwer:self];
     self.addBookHeaderView.addWordDelegate = self;
     
-    UIView *searchBarView = self.tableView.tableHeaderView;
-    
-    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.searchBar.frame.size.width, self.searchBar.frame.size.height + self.addBookHeaderView.frame.size.height)];
-    
-    [self.tableView.tableHeaderView addSubview:searchBarView];
-    [self.tableView.tableHeaderView addSubview:self.addBookHeaderView];
-    
-    self.addBookHeaderView.frame = CGRectOffset(self.addBookHeaderView.frame, 0, self.searchBar.frame.size.height);
+    if (searchBarVisible == YES)
+    {
+        UIView *searchBarView = self.tableView.tableHeaderView;
+        
+        self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.searchBar.frame.size.width, self.searchBar.frame.size.height + self.addBookHeaderView.frame.size.height)];
+        
+        [self.tableView.tableHeaderView addSubview:searchBarView];
+        self.addBookHeaderView.frame = CGRectOffset(self.addBookHeaderView.frame, 0, self.searchBar.frame.size.height);
+        
+        [self.tableView.tableHeaderView addSubview:self.addBookHeaderView];
+    }
+    else
+    {
+        self.tableView.tableHeaderView = self.addBookHeaderView;
+    }
     
     self.addBookHeaderView.backgroundColor = [UIColor clearColor];
     self.addBookHeaderView.titleTextField.delegate = self;
@@ -147,12 +159,15 @@
     self.keyboardToolbar = [FYDKeyboardNavigationToolbar toolbarWithOwer:self];
     self.keyboardToolbar.navigationDelegate = self;
     
-    [self createHeader];
+    [self createHeaderWithSearchBar:self.book == nil];
     
     if ([self hasAutoFocus])
     {
         [self createBarcodeButton];
     }
+    
+    // update labels
+    [self setBook:self.book];
 }
 
 - (void)viewDidUnload
@@ -179,7 +194,13 @@
 
 - (IBAction)saveButtonClick:(UIBarButtonItem *)sender
 {
+    self.book.title = self.addBookHeaderView.titleTextField.text;
+    self.book.author = self.authorTextField.text;
+    self.book.firstPage = [self.firstPageTextField.text integerValue];
+    self.book.lastPage = [self.lastPageTextField.text integerValue];
+    
     [self.delegate addBookTableViewController:self addBook:self.book];
+    
     [self dismissModalViewControllerAnimated:YES];
 }
 

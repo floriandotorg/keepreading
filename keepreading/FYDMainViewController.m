@@ -24,7 +24,7 @@
 @property (strong, nonatomic) FYDBookReadingDay *pageActionSheetDay;
 @property (assign, nonatomic) NSUInteger pageActionSheetCurrentPage;
 
-@property (strong, nonatomic) NSIndexPath *deletingIndexPath;
+@property (strong, nonatomic) NSIndexPath *currentIndexPath;
 
 @property (strong, nonatomic) FYDLibrary *library;
 
@@ -138,8 +138,14 @@
     if ([segue.identifier isEqualToString:@"modelToAddBook"])
     {
         FYDAddBookTableViewController *viewController = [[segue.destinationViewController viewControllers] objectAtIndex:0];
-        
         viewController.delegate = self;
+    }
+    else if ([segue.identifier isEqualToString:@"modalToDetail"])
+    {
+        FYDAddBookTableViewController *viewController = [[segue.destinationViewController viewControllers] objectAtIndex:0];
+        viewController.delegate = self;
+        [viewController editBook:[self readingDayForRow:self.currentIndexPath.row].bookReading.book];
+        self.currentIndexPath = nil;
     }
 }
 
@@ -148,7 +154,6 @@
 - (void)addBookTableViewController:(FYDAddBookTableViewController *)tableViewController addBook:(FYDBook *)book
 {
     [self.library addReading:book];
-    
     [self reloadData];
 }
 
@@ -202,7 +207,7 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        self.deletingIndexPath = indexPath;
+        self.currentIndexPath = indexPath;
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Delete Book" message:@"This action cannot be undone." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
         [alert show];
@@ -213,19 +218,25 @@
 {
     if (buttonIndex == 1)
     {
-        [self.library deleteReading:self.deletingIndexPath.row AtDate:self.datePicker.currentDate];
+        [self.library deleteReading:self.currentIndexPath.row AtDate:self.datePicker.currentDate];
         
         [UIView animateWithDuration:0.0 animations:^
-        {
-            [self.tableView beginUpdates];
-            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:self.deletingIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-            [self.tableView endUpdates];
-        }
-        completion:^(BOOL finished)
-        {
-            [self reloadData];
-        }];
+         {
+             [self.tableView beginUpdates];
+             [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:self.currentIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+             [self.tableView endUpdates];
+         }
+         completion:^(BOOL finished)
+         {
+             [self reloadData];
+         }];
     }
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    self.currentIndexPath = indexPath;
+    [self performSegueWithIdentifier:@"modalToDetail" sender:self];
 }
 
 #pragma mark - Page Action Sheet
