@@ -119,7 +119,7 @@
     
     imagePickerController.mediaTypes = [[NSArray alloc] initWithObjects:(NSString*)kUTTypeImage, nil];
 
-    imagePickerController.allowsEditing = YES;
+    imagePickerController.allowsEditing = NO;
     
     imagePickerController.delegate = self;
     
@@ -128,18 +128,18 @@
 
 - (void)imagePickerController:(UIImagePickerController*)reader didFinishPickingMediaWithInfo:(NSDictionary*)info
 {
-    if (info[UIImagePickerControllerEditedImage] != nil)
+    if (info[UIImagePickerControllerOriginalImage] != nil)
     {
-        UIImage *thumbnail = info[UIImagePickerControllerEditedImage];
+        UIImage *thumbnail = info[UIImagePickerControllerOriginalImage];
         
-        [self.book setThumbnailImage:thumbnail];
         [self.addBookHeaderView.imageButton setBackgroundImage:thumbnail forState:UIControlStateNormal];
+        self.addBookHeaderView.imageButton.titleLabel.textColor = [UIColor clearColor];
     }
     else if (info[ZBarReaderControllerResults]  != nil)
     {
         NSMutableArray *symbols = [[NSMutableArray alloc] init];
         
-        for (ZBarSymbol *symbol in info[ZBarReaderControllerResults] )
+        for (ZBarSymbol *symbol in info[ZBarReaderControllerResults])
         {
             [symbols addObject:symbol];
         }
@@ -199,6 +199,7 @@
 
 - (IBAction)saveButtonClick:(UIBarButtonItem *)sender
 {
+    [self.book setThumbnailImage:[self.addBookHeaderView.imageButton backgroundImageForState:UIControlStateNormal]];
     self.book.title = self.addBookHeaderView.titleTextField.text;
     self.book.author = self.authorTextField.text;
     self.book.firstPage = [self.firstPageTextField.text integerValue];
@@ -351,8 +352,11 @@
     
     [book loadThumbnail:^(UIImage *image, NSError *error)
      {
-         [self.addBookHeaderView.imageButton setBackgroundImage:image forState:UIControlStateNormal];
-         self.addBookHeaderView.imageButton.titleLabel.text = @"";
+         if (error == nil)
+         {
+             [self.addBookHeaderView.imageButton setBackgroundImage:image forState:UIControlStateNormal];
+             self.addBookHeaderView.imageButton.titleLabel.textColor = [UIColor clearColor];
+         }
      }];
     
     self.authorTextField.text = book.author;

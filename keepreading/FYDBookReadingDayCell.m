@@ -33,7 +33,7 @@
             self.thumbnailImageView.image = image;
         }];
     
-    self.currentPageLabel.text = [NSString stringWithFormat:@"%i", bookReadingDay.currentPage];
+    self.currentPageLabel.text = [NSString stringWithFormat:@"%i (%i %%)", bookReadingDay.currentPage, (NSInteger)((float)(bookReadingDay.currentPage - bookReadingDay.bookReading.book.firstPage) / bookReadingDay.bookReading.book.lastPage * 100.f)];
     self.dayPagesReadLabel.text = [NSString stringWithFormat:@"%i", bookReadingDay.pagesRead];
 }
 
