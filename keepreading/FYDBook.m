@@ -72,6 +72,7 @@
     [aCoder encodeObject:self.publisher forKey:@"publisher"];
     [aCoder encodeInteger:self.firstPage forKey:@"firstPage"];
     [aCoder encodeInteger:self.lastPage forKey:@"lastPage"];
+    [aCoder encodeInteger:self.startPage forKey:@"startPage"];
     [aCoder encodeObject:self.isbn forKey:@"isbn"];
     [aCoder encodeObject:self.thumbnailURL forKey:@"thumbnailURL"];
     [aCoder encodeObject:self.thumbnailImage forKey:@"thumbnailImage"];
@@ -88,6 +89,7 @@
         self.publisher = [aDecoder decodeObjectForKey:@"publisher"];
         self.firstPage = [aDecoder decodeIntegerForKey:@"firstPage"];
         self.lastPage = [aDecoder decodeIntegerForKey:@"lastPage"];
+        self.startPage = [aDecoder decodeIntegerForKey:@"startPage"];
         self.isbn = [aDecoder decodeObjectForKey:@"isbn"];
         
         NSURL *url = [aDecoder decodeObjectForKey:@"thumbnailURL"];

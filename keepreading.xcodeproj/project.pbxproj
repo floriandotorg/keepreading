@@ -24,7 +24,6 @@
 		174BE1A01757BE930096037A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 174BE19F1757BE930096037A /* Default@2x.png */; };
 		174BE1A21757BE930096037A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 174BE1A11757BE930096037A /* Default-568h@2x.png */; };
 		174BE1A51757BE930096037A /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 174BE1A31757BE930096037A /* MainStoryboard_iPhone.storyboard */; };
-		174BE1A81757BE930096037A /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 174BE1A61757BE930096037A /* MainStoryboard_iPad.storyboard */; };
 		174BE1B61757BE940096037A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174BE1B51757BE940096037A /* SenTestingKit.framework */; };
 		174BE1B71757BE940096037A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174BE18B1757BE930096037A /* UIKit.framework */; };
 		174BE1B81757BE940096037A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174BE18D1757BE930096037A /* Foundation.framework */; };
@@ -108,7 +107,6 @@
 		174BE19F1757BE930096037A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		174BE1A11757BE930096037A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		174BE1A41757BE930096037A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		174BE1A71757BE930096037A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		174BE1B41757BE940096037A /* keepreadingTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = keepreadingTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		174BE1B51757BE940096037A /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		174BE1BD1757BE940096037A /* keepreadingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "keepreadingTests-Info.plist"; sourceTree = "<group>"; };
@@ -441,7 +439,6 @@
 			isa = PBXGroup;
 			children = (
 				174BE1A31757BE930096037A /* MainStoryboard_iPhone.storyboard */,
-				174BE1A61757BE930096037A /* MainStoryboard_iPad.storyboard */,
 				176138E4175AA60D003BD612 /* BookCell.xib */,
 				176138E6175B4FD0003BD612 /* LoadingCell.xib */,
 				177CCE13175CEA6D003A96C0 /* KeyboardNavigationToolbar.xib */,
@@ -572,7 +569,6 @@
 				174BE1A01757BE930096037A /* Default@2x.png in Resources */,
 				174BE1A21757BE930096037A /* Default-568h@2x.png in Resources */,
 				174BE1A51757BE930096037A /* MainStoryboard_iPhone.storyboard in Resources */,
-				174BE1A81757BE930096037A /* MainStoryboard_iPad.storyboard in Resources */,
 				176138E5175AA60D003BD612 /* BookCell.xib in Resources */,
 				176138E7175B4FD0003BD612 /* LoadingCell.xib in Resources */,
 				176138E9175BFE5E003BD612 /* barcode_button.png in Resources */,
@@ -683,14 +679,6 @@
 				174BE1A41757BE930096037A /* en */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		174BE1A61757BE930096037A /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				174BE1A71757BE930096037A /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		174BE1BE1757BE940096037A /* InfoPlist.strings */ = {

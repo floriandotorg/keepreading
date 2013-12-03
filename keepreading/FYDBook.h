@@ -17,6 +17,7 @@
 @property (strong, nonatomic) NSString *publisher;
 @property (assign, nonatomic) NSUInteger firstPage;
 @property (assign, nonatomic) NSUInteger lastPage;
+@property (assign, nonatomic) NSUInteger startPage;
 @property (strong, nonatomic) NSString *isbn;
 
 - (void)setThumbnailURL:(NSURL*)url;

@@ -45,7 +45,7 @@
     
     if (loc == 0)
     {
-        loc = self.bookReading.book.firstPage;
+        loc = self.bookReading.book.startPage;
     }
     
     if (len == 0)
@@ -105,7 +105,7 @@
         
         if (prevDay == nil)
         {
-            return self.pageNo - self.bookReading.book.firstPage;
+            return self.pageNo - self.bookReading.book.startPage;
         }
         else
         {

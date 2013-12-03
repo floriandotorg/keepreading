@@ -30,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *authorTextField;
 @property (weak, nonatomic) IBOutlet UITextField *firstPageTextField;
 @property (weak, nonatomic) IBOutlet UITextField *lastPageTextField;
+@property (weak, nonatomic) IBOutlet UITextField *startPageTextField;
 
 @property (strong, nonatomic) FYDKeyboardNavigationToolbar *keyboardToolbar;
 @property (weak, nonatomic) UITextField *activeTextField;
@@ -204,6 +205,7 @@
     self.book.author = self.authorTextField.text;
     self.book.firstPage = [self.firstPageTextField.text integerValue];
     self.book.lastPage = [self.lastPageTextField.text integerValue];
+    self.book.startPage = [self.startPageTextField.text integerValue];
     
     [self.delegate addBookTableViewController:self addBook:self.book];
     
@@ -291,6 +293,11 @@
         [self.lastPageTextField becomeFirstResponder];
         [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:1] atScrollPosition:UITableViewScrollPositionTop animated:YES];
     }
+    else if (self.activeTextField == self.lastPageTextField)
+    {
+        [self.startPageTextField becomeFirstResponder];
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }
     else
     {
         [self.addBookHeaderView.titleTextField becomeFirstResponder];
@@ -300,7 +307,12 @@
 
 - (void)keyboardNavigationToolbarPrevClick:(FYDKeyboardNavigationToolbar *)navigationToolbar
 {
-    if (self.activeTextField == self.lastPageTextField)
+    if (self.activeTextField == self.startPageTextField)
+    {
+        [self.startPageTextField becomeFirstResponder];
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }
+    else if (self.activeTextField == self.lastPageTextField)
     {
         [self.firstPageTextField becomeFirstResponder];
         [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] atScrollPosition:UITableViewScrollPositionTop animated:YES];
@@ -362,6 +374,7 @@
     self.authorTextField.text = book.author;
     self.firstPageTextField.text = [NSString stringWithFormat:@"%i", book.firstPage];
     self.lastPageTextField.text = [NSString stringWithFormat:@"%i", book.lastPage];
+    self.startPageTextField.text = [NSString stringWithFormat:@"%i", book.startPage];
 }
 
 - (void)addBookSearchResultsController:(FYDAddBookSearchResultsController *)searchController didFinish:(FYDBook *)book
