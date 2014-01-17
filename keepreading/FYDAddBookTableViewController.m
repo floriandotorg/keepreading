@@ -73,7 +73,7 @@
     self.addBookHeaderView.backgroundColor = [UIColor clearColor];
     self.addBookHeaderView.titleTextField.delegate = self;
     
-    self.addBookHeaderView.imageButton.titleLabel.textAlignment = UITextAlignmentCenter;
+    self.addBookHeaderView.imageButton.titleLabel.textAlignment = NSTextAlignmentCenter;
 }
 
 - (void)addBookHeaderViewImageButtonClick:(FYDAddBookHeaderView *)view
@@ -124,19 +124,12 @@
     
     imagePickerController.delegate = self;
     
-    [self presentModalViewController:imagePickerController animated:YES];
+    [self presentViewController:imagePickerController animated:YES completion:NULL];
 }
 
 - (void)imagePickerController:(UIImagePickerController*)reader didFinishPickingMediaWithInfo:(NSDictionary*)info
 {
-    if (info[UIImagePickerControllerOriginalImage] != nil)
-    {
-        UIImage *thumbnail = info[UIImagePickerControllerOriginalImage];
-        
-        [self.addBookHeaderView.imageButton setBackgroundImage:thumbnail forState:UIControlStateNormal];
-        self.addBookHeaderView.imageButton.titleLabel.textColor = [UIColor clearColor];
-    }
-    else if (info[ZBarReaderControllerResults]  != nil)
+    if (info[ZBarReaderControllerResults]  != nil)
     {
         NSMutableArray *symbols = [[NSMutableArray alloc] init];
         
@@ -147,8 +140,15 @@
         
         [self readBarcode:symbols];
     }
+    else if (info[UIImagePickerControllerOriginalImage] != nil)
+    {
+        UIImage *thumbnail = info[UIImagePickerControllerOriginalImage];
+        
+        [self.addBookHeaderView.imageButton setBackgroundImage:thumbnail forState:UIControlStateNormal];
+        self.addBookHeaderView.imageButton.titleLabel.textColor = [UIColor clearColor];
+    }
     
-    [reader dismissModalViewControllerAnimated:YES];
+    [reader dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (void)viewDidLoad
@@ -195,7 +195,7 @@
 
 - (IBAction)cancelButtonClick:(UIBarButtonItem *)sender
 {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (IBAction)saveButtonClick:(UIBarButtonItem *)sender
@@ -209,7 +209,7 @@
     
     [self.delegate addBookTableViewController:self addBook:self.book];
     
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (void)createBarcodeButton
@@ -396,7 +396,7 @@
     
     [reader.scanner setSymbology:0
                           config:ZBAR_CFG_ENABLE
-                              to:0];
+                              to:1];
     
     [reader.scanner setSymbology:ZBAR_ISBN10
                           config:ZBAR_CFG_ENABLE
@@ -410,7 +410,7 @@
                           config:ZBAR_CFG_ENABLE
                               to:1];
     
-    [self presentModalViewController:reader animated:YES];
+    [self presentViewController:reader animated:YES completion:NULL];
 }
 
 - (void)search:(FYDBookSearch*)bookSearch byISBN:(NSEnumerator*)enumerator withCompletionHandler:(void(^)(FYDBook*))handler

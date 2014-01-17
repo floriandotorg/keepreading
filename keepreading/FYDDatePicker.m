@@ -8,29 +8,11 @@
 
 #import "FYDDatePicker.h"
 
+#import <Kal.h>
+#import <Kal/KalDate.h>
+
 #import "NSDate+dateWithClearedTime.h"
 #import "NSDate+dateByAddDays.h"
-
-////////////// Kal
-
-#import "Kal.h"
-
-@interface KalViewController (today)
-
-- (void)today;
-
-@end
-
-@implementation KalViewController (today)
-
-- (void)today
-{
-    [self showAndSelectDate:[NSDate date]];
-}
-
-@end
-
-///////////////
 
 #define FYD_NUM_VISIBLE_LABELS (9.0)
 
@@ -59,6 +41,7 @@
 
 - (void)awakeFromNib
 {
+    self.translatesAutoresizingMaskIntoConstraints = YES;
     self.originalFrame = self.frame;
     self.labelWidth = self.originalFrame.size.width / FYD_NUM_VISIBLE_LABELS;
     
@@ -93,13 +76,13 @@
     self.weekdayLabel = [[UILabel alloc] init];
     self.weekdayLabel.font = [UIFont boldSystemFontOfSize:11.0];
     self.weekdayLabel.backgroundColor = [UIColor clearColor];
-    self.weekdayLabel.textAlignment = UITextAlignmentCenter;
+    self.weekdayLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:self.weekdayLabel];
     
     self.monthLabel = [[UILabel alloc] init];
     self.monthLabel.font = [UIFont boldSystemFontOfSize:11.0];
     self.monthLabel.backgroundColor = [UIColor clearColor];
-    self.monthLabel.textAlignment = UITextAlignmentCenter;
+    self.monthLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:self.monthLabel];
     
     [self recenter];
@@ -124,7 +107,9 @@
 
 - (void)handleDoubleTap:(UITapGestureRecognizer*)sender
 {
-    self.kalViewController = [[KalViewController alloc] initWithSelectedDate:self.currentDate];
+    //self.kalViewController = [[KalViewController alloc] initWithSelectedDate:self.currentDate];
+    
+    self.kalViewController = [[KalViewController alloc] init];
     
     UINavigationController *navigationController = [[self.datePickerDelegate datePickerGetViewController:self] navigationController];
     
@@ -166,7 +151,7 @@
         navigationController.delegate = self.oldNavigationController;
         self.oldNavigationController = nil;
         
-        self.currentDate = self.kalViewController.selectedDate;
+        self.currentDate = self.kalViewController.calendarView.selectedDate.NSDate;
         self.kalViewController = nil;
         
         [self callDelegateDidPickDate];
