@@ -8,6 +8,8 @@
 
 #import "FYDBook.h"
 
+#import <UIImage+ResizeMagick.h>
+
 @interface FYDBook ()
 
 @property (strong, nonatomic) NSURL *thumbnailURL;
@@ -25,6 +27,13 @@
 
 - (void)setThumbnailImage:(UIImage*)image
 {
+    const CGFloat width = 480;
+    
+    if (image.size.width > width)
+    {
+        image = [image resizedImageByWidth:width];
+    }
+    
     _thumbnailImage = image;
     _thumbnailURL = nil;
 }
@@ -75,7 +84,7 @@
     [aCoder encodeInteger:self.startPage forKey:@"startPage"];
     [aCoder encodeObject:self.isbn forKey:@"isbn"];
     [aCoder encodeObject:self.thumbnailURL forKey:@"thumbnailURL"];
-    [aCoder encodeObject:self.thumbnailImage forKey:@"thumbnailImage"];
+    [aCoder encodeObject:UIImageJPEGRepresentation(self.thumbnailImage, .9) forKey:@"thumbnailImage"];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -93,7 +102,7 @@
         self.isbn = [aDecoder decodeObjectForKey:@"isbn"];
         
         NSURL *url = [aDecoder decodeObjectForKey:@"thumbnailURL"];
-        UIImage *image = [aDecoder decodeObjectForKey:@"thumbnailImage"];
+        UIImage *image = [UIImage imageWithData:[aDecoder decodeObjectForKey:@"thumbnailImage"]];
         
         if (image != nil)
         {
